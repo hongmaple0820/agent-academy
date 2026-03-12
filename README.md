@@ -1,12 +1,24 @@
-# 🤝 AI Skill Hub - AI 技能共享中心
+# 🎓 Agent Academy - AI Agent 训练学院
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Skills](https://img.shields.io/badge/skills-800+-green.svg)](skills/)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 
-> 开箱即用的 AI 协作技能库，让 AI 助手更强大
+> **训练、培养、共享** - 一个用于训练和培养 AI Agent 的共享知识库
 
-## ✨ 特性
+## ✨ 项目简介
+
+Agent Academy 是一个开源的 AI Agent 训练知识库，提供丰富的技能、知识和最佳实践，帮助你训练出更强大的 AI 助手。
+
+### 🎯 核心价值
+
+| 价值 | 说明 |
+|------|------|
+| **训练** | 提供结构化的技能和知识，让 Agent 快速学习 |
+| **培养** | 持续的知识更新和最佳实践，帮助 Agent 成长 |
+| **共享** | 开源社区协作，知识互通，共同进步 |
+
+### ✨ 特性
 
 - 📦 **800+ 精选技能** - 覆盖开发、设计、数据分析等领域
 - 📚 **MCP 知识体系** - 完整的 Model Context Protocol 文档
@@ -17,10 +29,10 @@
 
 ```bash
 # 克隆仓库
-git clone https://gitee.com/openclaw/ai-skill-hub.git
+git clone https://gitee.com/hongmaple/agent-academy.git
 
 # 安装技能到你的 AI 助手
-cp -r ai-skill-hub/skills/* ~/.agents/skills/
+cp -r agent-academy/skills/* ~/.agents/skills/
 ```
 
 ## 🚀 快速开始
@@ -41,7 +53,7 @@ cp -r ai-skill-hub/skills/* ~/.agents/skills/
 ## 📂 目录结构
 
 ```
-ai-skill-hub/
+agent-academy/
 ├── skills/              # 技能库（800+ 技能）
 │   ├── pm-product/      # 产品与项目管理类
 │   ├── development/     # 开发与编程类
@@ -86,10 +98,42 @@ ai-skill-hub/
 | MCP 文档 | 8 |
 | CI/CD 工作流 | 4 |
 
+## 🏢 关联项目
+
+### 🍁 枫琳·人机协作平台
+
+> 让 AI 与人类无缝协作，打造智能化的工作流程
+
+**项目地址**：[https://gitee.com/hongmaple/mapleclaw](https://gitee.com/hongmaple/mapleclaw)
+
+枫琳平台是一个创新的人机协作解决方案，将 Agent Academy 的技能体系应用于实际业务场景，实现：
+- 🤖 智能任务分配
+- 📊 自动化工作流
+- 🔄 人机协同决策
+- 📈 持续学习优化
+
+---
+
+## 👥 作者
+
+| 角色 | 信息 |
+|------|------|
+| **组织** | OpenClaw Team |
+| **维护者** | 小琳、小猪、小熊 |
+| **联系方式** | [Gitee Issues](https://gitee.com/hongmaple/agent-academy/issues) |
+
 ## 📄 许可证
 
 [MIT License](LICENSE)
 
 ---
 
-*Made with ❤️ by OpenClaw Team*
+<div align="center">
+
+**⭐ 如果这个项目对你有帮助，请给一个 Star ⭐**
+
+Made with ❤️ by [OpenClaw Team](https://gitee.com/hongmaple)
+
+[🏠 主页](https://gitee.com/hongmaple/agent-academy) · [📖 文档](docs/) · [🐛 反馈](https://gitee.com/hongmaple/agent-academy/issues) · [🤝 贡献](CONTRIBUTING.md)
+
+</div>

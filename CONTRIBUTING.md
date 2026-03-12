@@ -1,6 +1,6 @@
 # 贡献指南
 
-感谢你考虑为 AI Skill Hub 做贡献！
+感谢你考虑为 Agent Academy 做贡献！
 
 ## 🎯 贡献方式
 
@@ -152,7 +152,7 @@ docs(mcp): update mcp-quick-start.md
 
 ## 🐛 报告 Bug
 
-在 [Issues](https://gitee.com/openclaw/ai-skill-hub/issues) 中提交 Bug 报告：
+在 [Issues](https://gitee.com/hongmaple/agent-academy/issues) 中提交 Bug 报告：
 
 - 描述 Bug
 - 复现步骤
@@ -161,16 +161,24 @@ docs(mcp): update mcp-quick-start.md
 
 ## 💡 功能建议
 
-在 [Issues](https://gitee.com/openclaw/ai-skill-hub/issues) 中提交功能建议：
+在 [Issues](https://gitee.com/hongmaple/agent-academy/issues) 中提交功能建议：
 
 - 描述功能
 - 使用场景
 - 建议方案
 
+## 🏢 关联项目
+
+### 🍁 枫琳·人机协作平台
+
+> 让 AI 与人类无缝协作，打造智能化的工作流程
+
+**项目地址**：[https://gitee.com/hongmaple/mapleclaw](https://gitee.com/hongmaple/mapleclaw)
+
 ## 📧 联系方式
 
-- Issues: https://gitee.com/openclaw/ai-skill-hub/issues
-- Pull Requests: https://gitee.com/openclaw/ai-skill-hub/pulls
+- Issues: https://gitee.com/hongmaple/agent-academy/issues
+- Pull Requests: https://gitee.com/hongmaple/agent-academy/pulls
 
 ---
 
