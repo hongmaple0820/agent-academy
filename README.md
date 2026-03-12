@@ -37,22 +37,58 @@
 
 ## 📦 安装
 
-### 方式一：克隆仓库
+### 方式一：Agent 自动安装（推荐）
 
-```bash
-# 克隆仓库
-git clone https://gitee.com/hongmaple/agent-academy.git
+让 AI Agent 自己安装技能库，只需告诉它：
 
-# 安装技能到你的 AI 助手
-cp -r agent-academy/skills/* ~/.agents/skills/
+```
+请帮我安装 Agent Academy 技能库：
+1. 克隆仓库：git clone https://gitee.com/hongmaple/agent-academy.git
+2. 复制技能：将 agent-academy/skills/ 目录复制到我的技能目录
+3. 配置使用：更新 AGENTS.md 或相关配置文件
 ```
 
-### 方式二：选择性安装
+**一键安装脚本**（Agent 可直接执行）：
 
 ```bash
-# 只安装特定分类的技能
+# Linux/macOS
+curl -fsSL https://gitee.com/hongmaple/agent-academy/raw/master/scripts/install.sh | bash
+
+# Windows (PowerShell)
+Invoke-WebRequest -Uri "https://gitee.com/hongmaple/agent-academy/raw/master/scripts/install.ps1" -OutFile "install.ps1"; ./install.ps1
+```
+
+### 方式二：手动安装
+
+```bash
+# 1. 克隆仓库
+git clone https://gitee.com/hongmaple/agent-academy.git
+
+# 2. 复制技能到你的 AI 助手
+cp -r agent-academy/skills/* ~/.agents/skills/
+
+# 3. 或者选择性安装特定分类
 cp -r agent-academy/skills/development ~/.agents/skills/
 cp -r agent-academy/skills/ai-ml ~/.agents/skills/
+```
+
+### 方式三：Fork 后定制
+
+```bash
+# 1. Fork 本仓库到你的账号
+
+# 2. 克隆你 Fork 的仓库
+git clone https://gitee.com/[你的用户名]/agent-academy.git
+
+# 3. 添加上游仓库（保持同步）
+git remote add upstream https://gitee.com/hongmaple/agent-academy.git
+
+# 4. 定制你的技能库
+# 添加、修改、删除技能...
+
+# 5. 同步上游更新
+git fetch upstream
+git merge upstream/master
 ```
 
 ## 🚀 快速开始
@@ -100,15 +136,124 @@ agent-academy/
 
 ## 🤝 贡献
 
-我们欢迎所有形式的贡献！
+我们欢迎所有形式的贡献！这是一个 **共建共享** 的知识库，每个人都可以参与。
 
 ### 贡献方式
 
-- 📝 **提交新技能** - 分享你的专业技能
-- 📚 **完善文档** - 改进现有文档或翻译
-- 🐛 **报告 Bug** - 帮助我们发现和修复问题
-- 💡 **提出建议** - 分享你的想法和需求
-- 🔧 **改进代码** - 优化现有技能和脚本
+| 方式 | 说明 | 难度 |
+|------|------|------|
+| 📝 **提交新技能** | 分享你的专业技能 | ⭐⭐ |
+| 📚 **完善文档** | 改进现有文档或翻译 | ⭐ |
+| 🐛 **报告 Bug** | 帮助我们发现和修复问题 | ⭐ |
+| 💡 **提出建议** | 分享你的想法和需求 | ⭐ |
+| 🔧 **改进代码** | 优化现有技能和脚本 | ⭐⭐⭐ |
+
+### 📤 提交 PR 流程
+
+#### 步骤 1：Fork 仓库
+
+1. 访问 [Agent Academy](https://gitee.com/hongmaple/agent-academy)
+2. 点击右上角 **Fork** 按钮
+3. 选择你的账号作为目标空间
+
+#### 步骤 2：克隆并创建分支
+
+```bash
+# 克隆你 Fork 的仓库
+git clone https://gitee.com/[你的用户名]/agent-academy.git
+cd agent-academy
+
+# 创建功能分支
+git checkout -b feature/your-skill-name
+```
+
+#### 步骤 3：添加或修改技能
+
+```bash
+# 创建技能目录
+mkdir -p skills/[分类]/[技能名]
+
+# 创建技能文件
+touch skills/[分类]/[技能名]/SKILL.md
+```
+
+**技能模板**：
+
+```markdown
+# 技能名称
+
+> 版本：1.0.0
+> 更新时间：2026-03-13
+> 分类：[分类名称]
+
+## 📋 技能概述
+[技能简介]
+
+## 🎯 核心功能
+- 功能 1
+- 功能 2
+
+## 🚀 使用方法
+[使用说明]
+```
+
+#### 步骤 4：提交并推送
+
+```bash
+# 添加文件
+git add .
+
+# 提交（使用规范格式）
+git commit -m "feat(skill): add [技能名] skill"
+
+# 推送到你的仓库
+git push origin feature/your-skill-name
+```
+
+#### 步骤 5：创建 Pull Request
+
+1. 访问你 Fork 的仓库页面
+2. 点击 **Pull Request** 按钮
+3. 填写 PR 标题和描述
+4. 提交 PR 等待审核
+
+### 📋 PR 审核标准
+
+| 检查项 | 要求 |
+|--------|------|
+| 提交消息 | 符合 Conventional Commits 格式 |
+| 文件结构 | 遵循技能目录规范 |
+| 文档完整 | 包含 SKILL.md，说明清晰 |
+| 无敏感信息 | 不包含密钥、密码、私人数据 |
+| 代码质量 | 无明显 Bug，注释完整 |
+
+### 🔄 保持同步
+
+```bash
+# 添加上游仓库
+git remote add upstream https://gitee.com/hongmaple/agent-academy.git
+
+# 同步最新代码
+git fetch upstream
+git merge upstream/master
+
+# 推送到你的仓库
+git push origin master
+```
+
+### 🤖 让 Agent 帮你提交 PR
+
+告诉你的 AI Agent：
+
+```
+请帮我向 Agent Academy 提交一个新技能：
+1. 技能名称：xxx
+2. 技能分类：development/ai-ml/integrations 等
+3. 技能功能：xxx
+4. 使用方法：xxx
+
+按照 CONTRIBUTING.md 的流程帮我创建 PR
+```
 
 详见 [贡献指南](CONTRIBUTING.md)
 
