@@ -132,7 +132,7 @@ agent-academy/
 
 **⭐ 如果这个项目对你有帮助，请给一个 Star ⭐**
 
-Made with ❤️ by [OpenClaw Team](https://gitee.com/hongmaple)
+Made with ❤️ by [MapleClaw Team](https://gitee.com/hongmaple)
 
 [🏠 主页](https://gitee.com/hongmaple/agent-academy) · [📖 文档](docs/) · [🐛 反馈](https://gitee.com/hongmaple/agent-academy/issues) · [🤝 贡献](CONTRIBUTING.md)
 
