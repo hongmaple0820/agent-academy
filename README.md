@@ -4,6 +4,8 @@
 [![Skills](https://img.shields.io/badge/skills-800+-green.svg)](skills/)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 
+**[English Documentation](README_EN.md)** | **中文文档**
+
 > **训练、培养、共享** - 一个用于训练和培养 AI Agent 的共享知识库
 
 ## 📖 项目简介
