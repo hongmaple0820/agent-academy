@@ -1,0 +1,45 @@
+# Git 提交消息模板
+# 保存到 .git/commit-template 或配置 git config commit.template
+
+# <类型>(<范围>): <简短描述>
+#
+# <详细描述>
+#
+# <页脚注释>
+
+# ========================
+# 类型说明
+# ========================
+# feat     - 新功能
+# fix      - Bug 修复
+# docs     - 文档更新
+# style    - 代码格式（不影响代码运行）
+# refactor - 重构
+# test     - 测试相关
+# chore    - 构建/工具变动
+# ci       - CI/CD 配置
+# perf     - 性能优化
+# build    - 构建系统变动
+# revert   - 回退提交
+
+# ========================
+# 格式要求
+# ========================
+# 1. 标题行不超过 50 个字符
+# 2. 使用祈使句（如 "add" 而非 "added"）
+# 3. 标题行结尾不加句号
+# 4. 正文每行不超过 72 个字符
+# 5. 正文解释 What 和 Why，而非 How
+
+# ========================
+# 示例
+# ========================
+# feat(auth): add OAuth2 authentication
+#
+# Implement OAuth2 authentication flow with Google and GitHub providers.
+# Users can now sign in using their social accounts.
+#
+# Closes #123
+
+# 你的提交消息：
+# 请删除上面的注释，填写你的提交消息

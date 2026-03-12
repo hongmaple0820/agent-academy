@@ -1,0 +1,141 @@
+# 技能目录迁移状态分析
+# 创建时间: 2026-0312
+# 分析人: 小琳
+
+## 已创建的分类目录结构
+1. pm-product/ - 产品与项目管理类
+2. development/ - 开发与编程类
+3. design/ - 设计与界面类
+4. documentation/ - 文档与写作类
+5. data-analysis/ - 数据分析与研究类
+6. tool-development/ - 技能与工具开发类
+7. web-api/ - Web与API开发类
+8. security-testing/ - 安全与测试类
+9. ai-ml/ - AI与机器学习类
+10. frameworks/ - 框架与库类
+11. integrations/ - 存储与集成类
+12. others/ - 其他重要技能类
+
+## 独立的核心技能目录
+1. daily-review/ - 每日复盘技能
+2. programming-workflow/ - 编程项目工作流
+3. pm-skills/ - PM产品经理技能（自成体系）
+4. project-standards/ - 项目规范学习指南
+
+## 需要分析的目录 (从根目录搜索得到)
+总目录数: 105个
+
+## 按照分类进行分析:
+
+### pm-product分类需要迁移的目录:
+- brainstorming/ (已在pm-product目录中)
+- executing-plans/ (已在pm-product目录中)
+- planning-with-files/ (已在pm-product目录中)
+- product-team/ (已在pm-product目录中)
+- project-management/ (已在pm-product目录中)
+
+### development分类需要迁移的目录:
+- coding-agent/ (已在development目录中)
+- deploying-applications/ (已在development目录中)
+- finishing-a-development-branch/ (已在development目录中)
+- git-commit/ (已在development目录中)
+- receiving-code-review/ (已在development目录中)
+- requesting-code-review/ (已在development目录中)
+- test-driven-development/ 
+- testing-strategies/ 
+- property-based-testing/ 
+- root-cause-tracing/ 
+- verification-before-completion/ 
+- systematic-debugging/ 
+- writing-github-actions/ 
+- tdd/ (test-driven-development缩写)
+
+### design分类需要迁移的目录:
+- frontend-design/
+- designing-layouts/
+- designing-apis/
+- canvas/
+- ui-ux-pro-max/
+- ppt-style-guide/
+- composition-patterns/
+- building-forms/
+- building-tables/
+- building-secure-contracts/
+- web-design-guidelines/
+
+### documentation分类需要迁移的目录:
+- daily-review/ (已在根目录作为核心技能)
+- writing-skills/
+- writing-plans/
+- markdown-to-epub/
+- changelog-generator/
+- diagram-generator/
+
+### data-analysis分类需要迁移的目录:
+- deep-research/
+- statistical-analysis/
+- visualizing-data/
+- matplotlib/
+- d3js-visualization/
+- implementing-search-filter/
+- csv-analyzer/
+
+### tool-development分类需要迁移的目录:
+- mcp-builder/
+- creating-skills/
+- skill-creator/
+- memory-systems/
+- context-fundamentals/
+- skill-seekers/
+- skills-updater/
+- tool-design/
+
+### web-api分类需要迁移的目录:
+- building-forms/ (已在design分类)
+- building-tables/ (已在design分类)
+- building-secure-contracts/ (已在design分类)
+- implementing-search-filter/ (已在data-analysis分类)
+- designing-apis/ (已在design分类)
+
+### security-testing分类需要迁移的目录:
+- test-driven-development/ (已在development分类)
+- testing-strategies/ (已在development分类)
+- property-based-testing/ (已在development分类)
+- root-cause-tracing/ (已在development分类)
+- verification-before-completion/ (已在development分类)
+
+### ai-ml分类需要迁移的目录:
+- hugging-face-model-trainer/
+- hugging-face-datasets/
+- hugging-face-evaluation/
+- hugging-face-cli/
+- hugging-face-trackio/
+- pytorch-lightning/
+
+### frameworks分类需要迁移的目录:
+- react-best-practices/
+- react-best-practices-build/
+- react-native-skills/
+- composition-patterns/ (已在design分类)
+
+### integrations分类需要迁移的目录:
+- supabase-postgres-best-practices/
+- secret-management/
+- google-calendar/
+- google-docs/
+- google-drive/
+- google-sheets/
+- notion/
+- slack/
+- discord/
+
+### others分类需要迁移的目录:
+- engineering-team/
+- c-level-advisor/
+- marketing-skill/
+- web-design-guidelines/ (已在design分类)
+- using-git-worktrees/
+- using-superpowers/
+
+## 需要迁移的总目录数:
+通过分析，大约需要迁移 45-50 个目录

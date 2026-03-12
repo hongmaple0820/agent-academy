@@ -1,0 +1,27 @@
+{
+  "generated_at": "2026-03-13 04:12:42",
+  "total_skills": 158,
+  "classified_count": 158,
+  "categories": {
+    "pm-product": 5,
+    "development": 21,
+    "design": 14,
+    "documentation": 5,
+    "data-analysis": 8,
+    "tool-development": 16,
+    "web-api": 0,
+    "security-testing": 3,
+    "ai-ml": 21,
+    "frameworks": 4,
+    "integrations": 28,
+    "others": 29
+  },
+  "core_skills": {
+    "daily-review": 1,
+    "programming-workflow": 1,
+    "pm-skills": 1,
+    "project-standards": 1
+  },
+  "unclassified_skills": [],
+  "unclassified_count": 0
+}

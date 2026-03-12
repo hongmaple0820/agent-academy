@@ -1,0 +1,11 @@
+[Unit]
+Description=每日复盘定时器
+After=network.target
+
+[Timer]
+# 每天晚上 12 点触发
+OnCalendar=*-*-* 00:00:00
+Persistent=true
+
+[Install]
+WantedBy=timers.target

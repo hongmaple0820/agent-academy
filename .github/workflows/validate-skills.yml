@@ -1,0 +1,65 @@
+# 技能目录结构验证工作流
+# 验证技能目录结构是否正确，检查分类覆盖率
+
+name: Skills Validation
+
+on:
+  pull_request:
+    branches: [ master ]
+    paths:
+      - 'skills/**'
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      
+      - name: Validate skills structure
+        run: |
+          python scripts/skill-stats.py
+          
+          # 检查未分类技能
+          UNCLASSIFIED=$(python -c "import json; data=json.load(open('skills-stats.json')); print(data['unclassified_count'])")
+          
+          if [ "$UNCLASSIFIED" -gt 0 ]; then
+            echo "::warning::发现 $UNCLASSIFIED 个未分类技能"
+          else
+            echo "✅ 所有技能已完成分类"
+          fi
+      
+      - name: Check README files
+        run: |
+          echo "检查各分类目录的 README.md 文件..."
+          
+          MISSING_README=""
+          for dir in skills/*/; do
+            if [ ! -f "${dir}README.md" ] && [ -d "$dir" ]; then
+              dirname=$(basename "$dir")
+              # 排除核心技能目录
+              if [[ ! "$dirname" =~ ^(daily-review|programming-workflow|pm-skills|project-standards)$ ]]; then
+                MISSING_README="$MISSING_README $dirname"
+              fi
+            fi
+          done
+          
+          if [ -n "$MISSING_README" ]; then
+            echo "::warning::以下目录缺少 README.md:$MISSING_README"
+          else
+            echo "✅ 所有分类目录都有 README.md"
+          fi
+      
+      - name: Generate report
+        run: |
+          echo "## 📋 验证报告" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### 技能统计" >> $GITHUB_STEP_SUMMARY
+          cat skills-stats.md >> $GITHUB_STEP_SUMMARY

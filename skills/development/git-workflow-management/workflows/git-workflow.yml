@@ -1,0 +1,172 @@
+# Git 工作流 CI
+# 包含提交规范检查、代码统计、审查辅助
+
+name: Git Workflow CI
+
+on:
+  push:
+    branches: [ master, main, develop ]
+  pull_request:
+    branches: [ master, main ]
+
+jobs:
+  # ==========================================
+  # 提交消息规范检查
+  # ==========================================
+  commit-check:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      
+      - name: Validate commit messages
+        run: |
+          echo "## 📝 提交消息检查" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          
+          # 获取本次推送的所有提交
+          COMMITS=$(git log --pretty=format:"%s" ${{ github.event.before }}..${{ github.event.after }})
+          
+          VALID=true
+          while IFS= read -r msg; do
+            if ! echo "$msg" | grep -qE "^(feat|fix|docs|style|refactor|test|chore|ci|perf|build|revert)(\(.+\))?: .{1,50}$"; then
+              echo "❌ Invalid: $msg" >> $GITHUB_STEP_SUMMARY
+              VALID=false
+            else
+              echo "✅ Valid: $msg" >> $GITHUB_STEP_SUMMARY
+            fi
+          done <<< "$COMMITS"
+          
+          if [ "$VALID" = false ]; then
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "请使用规范的提交消息格式：\`<type>(<scope>): <subject>\`" >> $GITHUB_STEP_SUMMARY
+            exit 1
+          fi
+
+  # ==========================================
+  # 代码统计
+  # ==========================================
+  code-stats:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      
+      - name: Generate statistics
+        run: |
+          echo "## 📊 代码统计报告" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          
+          # 基本信息
+          echo "### 📈 概览" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "| 指标 | 数值 |" >> $GITHUB_STEP_SUMMARY
+          echo "|------|------|" >> $GITHUB_STEP_SUMMARY
+          echo "| 总提交数 | $(git rev-list --count HEAD) |" >> $GITHUB_STEP_SUMMARY
+          echo "| 贡献者数 | $(git shortlog -sn --all | wc -l) |" >> $GITHUB_STEP_SUMMARY
+          echo "| 分支数 | $(git branch -a | wc -l) |" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          
+          # 最近一周活动
+          echo "### 📅 最近 7 天活动" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          WEEK_COMMITS=$(git log --since="1 week ago" --oneline | wc -l)
+          echo "- 提交数: $WEEK_COMMITS" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          
+          # 贡献者排行
+          echo "### 👥 贡献者 TOP 5" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "| 排名 | 贡献者 | 提交数 |" >> $GITHUB_STEP_SUMMARY
+          echo "|------|--------|--------|" >> $GITHUB_STEP_SUMMARY
+          git shortlog -sn --all | head -5 | awk '{print "| " NR " | " $2 " | " $1 " |"}' >> $GITHUB_STEP_SUMMARY
+
+  # ==========================================
+  # PR 审查辅助
+  # ==========================================
+  pr-review:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      
+      - name: PR Statistics
+        run: |
+          echo "## 📋 PR 审查报告" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          
+          # 获取 PR 变更统计
+          echo "### 📊 变更统计" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          git diff --stat origin/${{ github.base_ref }}...HEAD >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          
+          # 检查敏感信息
+          echo "### 🔒 安全检查" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          CHANGED_FILES=$(git diff --name-only origin/${{ github.base_ref }}...HEAD)
+          
+          if echo "$CHANGED_FILES" | xargs grep -l "password\|secret\|api_key\|private_key" 2>/dev/null; then
+            echo "⚠️ **发现可能的敏感信息，请检查！**" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "✅ 未发现敏感信息" >> $GITHUB_STEP_SUMMARY
+          fi
+          echo "" >> $GITHUB_STEP_SUMMARY
+          
+          # 检查大文件
+          echo "### 📦 文件检查" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          LARGE_FILES=$(find . -type f -size +1M -not -path "./.git/*" -not -path "./node_modules/*" 2>/dev/null)
+          if [ -n "$LARGE_FILES" ]; then
+            echo "⚠️ 发现大于 1MB 的文件：" >> $GITHUB_STEP_SUMMARY
+            echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
+            echo "$LARGE_FILES" >> $GITHUB_STEP_SUMMARY
+            echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "✅ 文件大小正常" >> $GITHUB_STEP_SUMMARY
+          fi
+      
+      - name: Coverage check
+        if: hashFiles('package.json') != ''
+        run: |
+          if grep -q "\"test\"" package.json; then
+            echo "### 🧪 测试检查" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            npm ci --quiet 2>/dev/null || true
+            npm test -- --passWithNoTests --coverage=false 2>/dev/null && echo "✅ 测试通过" >> $GITHUB_STEP_SUMMARY || echo "⚠️ 测试失败或有警告" >> $GITHUB_STEP_SUMMARY
+          fi
+
+  # ==========================================
+  # 文件结构检查
+  # ==========================================
+  structure-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      
+      - name: Check project structure
+        run: |
+          echo "## 📁 项目结构检查" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          
+          # 检查必要文件
+          REQUIRED_FILES=("README.md" "LICENSE" ".gitignore")
+          
+          echo "### ✅ 必要文件检查" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          for file in "${REQUIRED_FILES[@]}"; do
+            if [ -f "$file" ]; then
+              echo "- ✅ $file" >> $GITHUB_STEP_SUMMARY
+            else
+              echo "- ❌ $file (缺失)" >> $GITHUB_STEP_SUMMARY
+            fi
+          done

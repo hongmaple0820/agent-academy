@@ -1,0 +1,107 @@
+# 每周 Git 统计报告
+# 每周一自动生成并发送统计报告
+
+name: Weekly Git Stats
+
+on:
+  schedule:
+    - cron: '0 1 * * 1'  # UTC 01:00 = 北京时间 09:00
+  workflow_dispatch:
+
+jobs:
+  generate-weekly-report:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      
+      - name: Generate weekly statistics
+        run: |
+          # 创建报告目录
+          mkdir -p reports/weekly
+          
+          # 生成统计报告
+          cat > reports/weekly/weekly-report-$(date +%Y-%m-%d).md << 'EOF'
+          # 📊 每周 Git 统计报告
+          
+          EOF
+          
+          echo "> 报告日期：$(date '+%Y-%m-%d %H:%M:%S')" >> reports/weekly/weekly-report-$(date +%Y-%m-%d).md
+          echo "" >> reports/weekly/weekly-report-$(date +%Y-%m-%d).md
+          
+          # 基本统计
+          echo "## 📈 总体统计" >> reports/weekly/weekly-report-$(date +%Y-%m-%d).md
+          echo "" >> reports/weekly/weekly-report-$(date +%Y-%m-%d).md
+          echo "| 指标 | 数值 |" >> reports/weekly/weekly-report-$(date +%Y-%m-%d).md
+          echo "|------|------|" >> reports/weekly/weekly-report-$(date +%Y-%m-%d).md
+          echo "| 总提交数 | $(git rev-list --count HEAD) |" >> reports/weekly/weekly-report-$(date +%Y-%m-%d).md
+          echo "| 贡献者数 | $(git shortlog -sn --all | wc -l) |" >> reports/weekly/weekly-report-$(date +%Y-%m-%d).md
+          echo "" >> reports/weekly/weekly-report-$(date +%Y-%m-%d).md
+          
+          # 本周活动
+          echo "## 📅 本周活动" >> reports/weekly/weekly-report-$(date +%Y-%m-%d).md
+          echo "" >> reports/weekly/weekly-report-$(date +%Y-%m-%d).md
+          WEEK_COMMITS=$(git log --since="1 week ago" --oneline | wc -l)
+          echo "- 本周提交数: **$WEEK_COMMITS**" >> reports/weekly/weekly-report-$(date +%Y-%m-%d).md
+          echo "" >> reports/weekly/weekly-report-$(date +%Y-%m-%d).md
+          
+          # 本周提交详情
+          if [ "$WEEK_COMMITS" -gt 0 ]; then
+            echo "### 📝 本周提交记录" >> reports/weekly/weekly-report-$(date +%Y-%m-%d).md
+            echo "" >> reports/weekly/weekly-report-$(date +%Y-%m-%d).md
+            echo "\`\`\`" >> reports/weekly/weekly-report-$(date +%Y-%m-%d).md
+            git log --since="1 week ago" --oneline --decorate >> reports/weekly/weekly-report-$(date +%Y-%m-%d).md
+            echo "\`\`\`" >> reports/weekly/weekly-report-$(date +%Y-%m-%d).md
+            echo "" >> reports/weekly/weekly-report-$(date +%Y-%m-%d).md
+          fi
+          
+          # 贡献者排行
+          echo "## 👥 贡献者排行" >> reports/weekly/weekly-report-$(date +%Y-%m-%d).md
+          echo "" >> reports/weekly/weekly-report-$(date +%Y-%m-%d).md
+          echo "| 排名 | 贡献者 | 提交数 |" >> reports/weekly/weekly-report-$(date +%Y-%m-%d).md
+          echo "|------|--------|--------|" >> reports/weekly/weekly-report-$(date +%Y-%m-%d).md
+          git shortlog -sn --all | head -10 | awk '{print "| " NR " | " $2 " | " $1 " |"}' >> reports/weekly/weekly-report-$(date +%Y-%m-%d).md
+          
+          echo "" >> reports/weekly/weekly-report-$(date +%Y-%m-%d).md
+          echo "---" >> reports/weekly/weekly-report-$(date +%Y-%m-%d).md
+          echo "*由 GitHub Actions 自动生成*" >> reports/weekly/weekly-report-$(date +%Y-%m-%d).md
+      
+      - name: Upload report artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: weekly-report
+          path: reports/weekly/
+      
+      - name: Commit report
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add reports/weekly/
+          git diff --quiet && git diff --staged --quiet || git commit -m "chore: add weekly git stats report [skip ci]"
+          git push
+
+  # 可选：发送通知
+  notify:
+    needs: generate-weekly-report
+    runs-on: ubuntu-latest
+    if: success()
+    steps:
+      - name: Download report
+        uses: actions/download-artifact@v4
+        with:
+          name: weekly-report
+      
+      - name: Summary
+        run: |
+          echo "## 📊 每周 Git 统计报告已生成" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "报告已保存到 \`reports/weekly/\` 目录" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          cat reports/weekly/weekly-report-*.md >> $GITHUB_STEP_SUMMARY

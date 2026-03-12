@@ -1,0 +1,12 @@
+[Unit]
+Description=每日复盘服务
+After=network.target
+
+[Service]
+Type=oneshot
+ExecStart=%h/.agents/skills/daily-review/scripts/daily-review.sh
+WorkingDirectory=%h/.openclaw/workspace
+Environment="OPENCLAW_STATE_DIR=%h/.openclaw"
+
+[Install]
+WantedBy=default.target

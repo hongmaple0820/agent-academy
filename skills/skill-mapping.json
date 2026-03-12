@@ -1,0 +1,167 @@
+{
+  "skill-mapping": {
+    "categories": {
+      "pm-product": {
+        "description": "产品与项目管理类",
+        "skills": [
+          "pm-skills",
+          "product-team",
+          "project-management",
+          "project-standards",
+          "brainstorming",
+          "planning-with-files",
+          "executing-plans"
+        ]
+      },
+      "development": {
+        "description": "开发与编程类",
+        "skills": [
+          "programming-workflow",
+          "coding-agent",
+          "git-commit",
+          "requesting-code-review",
+          "receiving-code-review",
+          "finishing-a-development-branch",
+          "deploying-applications",
+          "writing-github-actions",
+          "test-driven-development",
+          "testing-strategies",
+          "property-based-testing",
+          "root-cause-tracing",
+          "verification-before-completion",
+          "systematic-debugging",
+          "tdd"
+        ]
+      },
+      "design": {
+        "description": "设计与界面类",
+        "skills": [
+          "frontend-design",
+          "designing-layouts",
+          "designing-apis",
+          "canvas",
+          "ui-ux-pro-max",
+          "ppt-style-guide",
+          "composition-patterns",
+          "building-forms",
+          "building-tables",
+          "building-secure-contracts"
+        ]
+      },
+      "documentation": {
+        "description": "文档与写作类",
+        "skills": [
+          "daily-review",
+          "writing-skills",
+          "writing-plans",
+          "markdown-to-epub",
+          "changelog-generator",
+          "diagram-generator"
+        ]
+      },
+      "data-analysis": {
+        "description": "数据分析与研究类",
+        "skills": [
+          "deep-research",
+          "statistical-analysis",
+          "visualizing-data",
+          "matplotlib",
+          "d3js-visualization",
+          "implementing-search-filter",
+          "csv-analyzer"
+        ]
+      },
+      "tool-development": {
+        "description": "技能与工具开发类",
+        "skills": [
+          "mcp-builder",
+          "creating-skills",
+          "skill-creator",
+          "memory-systems",
+          "context-fundamentals",
+          "skill-seekers",
+          "skills-updater",
+          "tool-design"
+        ]
+      },
+      "web-api": {
+        "description": "Web与API开发类",
+        "skills": [
+          "building-forms",
+          "building-tables",
+          "building-secure-contracts",
+          "implementing-search-filter",
+          "designing-apis"
+        ]
+      },
+      "security-testing": {
+        "description": "安全与测试类",
+        "skills": [
+          "test-driven-development",
+          "testing-strategies",
+          "property-based-testing",
+          "root-cause-tracing",
+          "verification-before-completion"
+        ]
+      },
+      "ai-ml": {
+        "description": "AI与机器学习类",
+        "skills": [
+          "hugging-face-model-trainer",
+          "hugging-face-datasets",
+          "hugging-face-evaluation",
+          "hugging-face-cli",
+          "hugging-face-trackio",
+          "pytorch-lightning"
+        ]
+      },
+      "frameworks": {
+        "description": "框架与库类",
+        "skills": [
+          "react-best-practices",
+          "react-best-practices-build",
+          "react-native-skills",
+          "composition-patterns"
+        ]
+      },
+      "integrations": {
+        "description": "存储与集成类",
+        "skills": [
+          "supabase-postgres-best-practices",
+          "secret-management",
+          "google-calendar",
+          "google-docs",
+          "google-drive",
+          "google-sheets",
+          "notion",
+          "slack",
+          "discord"
+        ]
+      },
+      "others": {
+        "description": "其他重要技能类",
+        "skills": [
+          "engineering-team",
+          "c-level-advisor",
+          "marketing-skill",
+          "web-design-guidelines",
+          "using-git-worktrees",
+          "using-superpowers"
+        ]
+      }
+    },
+    "core-skills": {
+      "description": "高频核心技能（保持独立）",
+      "skills": [
+        "daily-review",
+        "programming-workflow",
+        "pm-skills",
+        "project-standards"
+      ]
+    },
+    "uncategorized": {
+      "description": "尚未分类的技能",
+      "skills": ["1password", "apple-notes", "apple-reminders", "aws-agentic-ai", "aws-cdk", "aws-common", "aws-cost-ops", "bear-notes", "biopython", "blogwatcher", "blucli", "bluebubbles", "camsnap", "claude-designer-skill", "claude-mem", "claude.ai", "clawhub", "cloudflare-agents-sdk", "cloudflare-durable-objects", "cloudflare-wrangler", "constant-time-analysis", "creating-dashboards", "differential-review", "eightctl", "firebase-apk-scanner", "gemini", "gh-issues", "gifgrep", "github-pr-creation", "github-pr-merge", "github-pr-review", "gog", "goplaces", "healthcheck", "himalaya", "imagen", "imsg", "insecure-defaults", "json-canvas", "knowledge-base-maintenance", "manus", "mcporter", "message-sending", "model-failover", "model-usage", "multi-agent-patterns", "nano-banana-pro", "networkx", "notebooklm-skill", "obsidian", "obsidian-bases", "obsidian-markdown", "openai-image-gen", "openai-whisper", "openai-whisper-api", "openhue", "oracle", "ordercli", "peekaboo", "pg-aiguide", "playwright-skill", "registry", "remotion-video", "sag", "sanjay-postgres", "scikit-learn", "semgrep-rule-creator", "serverless-eda", "session-logs", "sherpa-onnx-tts", "smart-search", "sonoscli", "statsmodels", "subagent-driven-development", "summarize", "ux-ui-design-system", "web-asset-generator", "writing-dockerfiles", "youtube-transcript"]
+    }
+  }
+}

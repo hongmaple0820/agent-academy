@@ -1,0 +1,63 @@
+# 技能目录统计 CI/CD 工作流
+# 在 push 到 skills 目录或每周自动运行统计脚本
+
+name: Skills Stats Automation
+
+on:
+  # 手动触发
+  workflow_dispatch:
+  
+  # 推送到 skills 目录时触发
+  push:
+    branches: [ master ]
+    paths:
+      - 'skills/**'
+  
+  # 每周一早上 9 点自动运行
+  schedule:
+    - cron: '0 1 * * 1'  # UTC 时间 01:00 = 北京时间 09:00
+
+jobs:
+  generate-stats:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      
+      - name: Run statistics script
+        run: |
+          echo "开始生成技能目录统计..."
+          python scripts/skill-stats.py
+      
+      - name: Check for changes
+        id: check_changes
+        run: |
+          if git diff --quiet skills-stats.json skills-stats.md; then
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+          else
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+          fi
+      
+      - name: Commit and push changes
+        if: steps.check_changes.outputs.has_changes == 'true'
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add skills-stats.json skills-stats.md
+          git commit -m "chore: update skills statistics [skip ci]"
+          git push
+      
+      - name: Generate summary
+        run: |
+          echo "## 📊 技能统计报告" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          cat skills-stats.md >> $GITHUB_STEP_SUMMARY
