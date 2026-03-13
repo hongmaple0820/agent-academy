@@ -1,226 +1,406 @@
 #!/bin/bash
-
-# Agent Academy 安装脚本
-# 用途：自动安装技能库到 AI Agent 环境
-# 使用：curl -fsSL https://gitee.com/hongmaple/agent-academy/raw/master/scripts/install.sh | bash
+# ==============================================
+# OpenClaw 公开安装脚本 v3.0 (开源版)
+# 
+# 适用：外部用户、新用户
+# 特点：只使用开源知识库 agent-academy，不含私密信息
+#
+# 项目地址：
+#   - Gitee: https://gitee.com/hongmaple/agent-academy
+#   - GitHub: https://github.com/hongmaple0820/agent-academy
+#   - GitCode: https://gitcode.com/maple168/agent-academy
+#
+# 作者：maple (hongmaple)
+# 团队：枫林 AI 协作团队
+# 
+# 更新时间：2026-03-13
+# ==============================================
 
 set -e
 
-# 颜色定义
+# --- 颜色定义 ---
 RED='\033[0;31m'
 GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
 BLUE='\033[0;34m'
-NC='\033[0m' # No Color
+NC='\033[0m'
 
-# 打印函数
-info() { echo -e "${BLUE}[INFO]${NC} $1"; }
-success() { echo -e "${GREEN}[SUCCESS]${NC} $1"; }
-warn() { echo -e "${YELLOW}[WARN]${NC} $1"; }
-error() { echo -e "${RED}[ERROR]${NC} $1"; exit 1; }
+# --- 配置 ---
+VERSION="3.0.0"
+SCRIPT_URL="https://gitee.com/hongmaple/agent-academy/raw/master/scripts/install.sh"
 
-# 版本信息
-VERSION="1.0.0"
-REPO_URL="https://gitee.com/hongmaple/agent-academy.git"
-TEMP_DIR="/tmp/agent-academy-$$"
+# 开源知识库地址 - Agent Academy
+PUBLIC_KB_REPO="https://gitee.com/hongmaple/agent-academy.git"
+PUBLIC_KB_BRANCH="master"
+PUBLIC_KB_NAME="agent-academy"
 
-echo ""
-echo "╔══════════════════════════════════════════════════════════╗"
-echo "║       🎓 Agent Academy - AI Agent 训练学院               ║"
-echo "║              自动安装脚本 v${VERSION}                        ║"
-echo "╚══════════════════════════════════════════════════════════╝"
-echo ""
-
-# 检查依赖
-check_dependencies() {
-    info "检查依赖..."
-    
-    if ! command -v git &> /dev/null; then
-        error "未找到 git，请先安装 git"
-    fi
-    
-    success "依赖检查通过"
+# --- 打印横幅 ---
+print_banner() {
+    echo -e "${BLUE}=============================================="
+    echo -e "🎓 OpenClaw 安装脚本 v${VERSION} (开源版)"
+    echo -e "   搭配 Agent Academy 知识库"
+    echo -e "==============================================${NC}"
+    echo -e "📦 项目: ${GREEN}Agent Academy${NC} - AI Agent 训练学院"
+    echo -e "👨‍💻 作者: ${YELLOW}maple (hongmaple)${NC}"
+    echo -e "🏠 主页: https://gitee.com/hongmaple/agent-academy"
+    echo -e "🤝 团队: 枫林 AI 协作团队"
+    echo -e "📅 更新时间: 2026-03-13"
+    echo ""
+    echo -e "${GREEN}✨ 特性:${NC}"
+    echo -e "   📦 800+ 精选技能"
+    echo -e "   📚 MCP 知识体系"
+    echo -e "   🧠 记忆系统方案"
+    echo -e "   👥 多 Agent 协作"
+    echo -e "   🌐 浏览器自动化"
+    echo ""
 }
 
-# 确定安装目录
-detect_install_dir() {
-    info "检测安装目录..."
+# --- 辅助函数 ---
+log_info() { echo -e "${GREEN}[INFO]${NC} $1"; }
+log_warn() { echo -e "${YELLOW}[WARN]${NC} $1"; }
+log_error() { echo -e "${RED}[ERROR]${NC} $1"; }
+log_ok() { echo -e "${GREEN}[✓]${NC} $1"; }
+log_step() { echo -e "${BLUE}>>>${NC} $1"; }
+
+# 统计
+SUCCESS=0; WARNINGS=0; SKIPPED=0
+
+# ==============================================
+# 阶段 1: 彻底卸载旧版 Node.js
+# ==============================================
+uninstall_old_node() {
+    log_step "阶段 1/8: 检查并清理 Node.js 环境"
     
-    # 优先级：自定义 > 环境变量 > 默认位置
-    if [ -n "$AGENT_ACADEMY_DIR" ]; then
-        INSTALL_DIR="$AGENT_ACADEMY_DIR"
-    elif [ -n "$HOME" ]; then
-        # 常见的 Agent 配置目录
-        if [ -d "$HOME/.agents" ]; then
-            INSTALL_DIR="$HOME/.agents"
-        elif [ -d "$HOME/.config/agents" ]; then
-            INSTALL_DIR="$HOME/.config/agents"
-        elif [ -d "$HOME/.claude" ]; then
-            INSTALL_DIR="$HOME/.claude"
-        elif [ -d "$HOME/.cursor" ]; then
-            INSTALL_DIR="$HOME/.cursor"
+    if command -v node &> /dev/null; then
+        OLD_VER=$(node -v 2>/dev/null || echo "unknown")
+        log_info "检测到当前 Node.js: $OLD_VER"
+        
+        # 检查是否需要升级到 Node.js 24
+        MAJOR_VER=$(echo "$OLD_VER" | sed 's/v//; s/\..*//' 2>/dev/null || echo "0")
+        
+        if [ "$MAJOR_VER" -ge 22 ]; then
+            log_ok "Node.js 版本满足要求 (>= 22)，跳过重装"
+            return 0
+        fi
+        
+        log_info "Node.js 版本过低，准备升级..."
+        
+        # 卸载 apt 安装的 nodejs
+        sudo apt-get remove --purge -y nodejs npm 2>/dev/null || true
+        sudo apt-get autoremove -y 2>/dev/null || true
+        sudo apt-get autoclean -y 2>/dev/null || true
+        
+        # 清理残留
+        sudo rm -rf /usr/local/lib/node_modules 2>/dev/null || true
+        sudo rm -rf /usr/lib/node_modules 2>/dev/null || true
+        
+        # 清理 npm 缓存
+        npm cache clean --force 2>/dev/null || true
+        rm -rf ~/.npm 2>/dev/null || true
+        
+        log_ok "旧版 Node.js 已清理"
+    else
+        log_info "未检测到 Node.js，将进行全新安装"
+    fi
+    echo ""
+}
+
+# ==============================================
+# 阶段 2: 网络检测与源选择
+# ==============================================
+NODE_SOURCE_URL=""
+NPM_REGISTRY="https://registry.npmmirror.com"
+
+check_network() {
+    log_step "阶段 2/8: 检测网络连接"
+    
+    if timeout 5 curl -s --head https://deb.nodesource.com &>/dev/null; then
+        NODE_SOURCE_URL="https://deb.nodesource.com/setup_24.x"
+        log_ok "使用官方 NodeSource 源 (Node.js 24)"
+    else
+        NODE_SOURCE_URL="https://mirrors.tuna.tsinghua.edu.cn/nodesource/deb/setup_24.x"
+        log_warn "官方源超时，切换至 [清华大学镜像源]"
+    fi
+    echo ""
+}
+
+# ==============================================
+# 阶段 3: 安装 Node.js 24 LTS
+# ==============================================
+install_node24() {
+    log_step "阶段 3/8: 安装 Node.js 24 LTS"
+    
+    if command -v node &> /dev/null; then
+        CURRENT_VER=$(node -v 2>/dev/null)
+        MAJOR_VER=$(echo "$CURRENT_VER" | sed 's/v//; s/\..*//' 2>/dev/null || echo "0")
+        
+        if [ "$MAJOR_VER" -ge 22 ]; then
+            log_ok "Node.js $CURRENT_VER 已满足要求，跳过安装"
+            npm config set registry "$NPM_REGISTRY" 2>/dev/null || true
+            echo ""
+            return 0
+        fi
+    fi
+    
+    log_info "添加 NodeSource 源..."
+    if curl -fsSL "$NODE_SOURCE_URL" | sudo -E bash -; then
+        log_ok "NodeSource 源添加成功"
+    else
+        log_error "NodeSource 源添加失败"
+        return 1
+    fi
+    
+    log_info "安装 Node.js..."
+    if sudo apt-get install -y nodejs; then
+        log_ok "Node.js 安装成功"
+        node -v
+        npm -v
+    else
+        log_error "Node.js 安装失败"
+        return 1
+    fi
+    
+    # 配置 npm 镜像
+    log_info "配置 npm 淘宝镜像..."
+    npm config set registry "$NPM_REGISTRY"
+    log_ok "npm 镜像已设置为: $(npm config get registry)"
+    echo ""
+}
+
+# ==============================================
+# 阶段 4: 安装系统依赖
+# ==============================================
+install_dependencies() {
+    log_step "阶段 4/8: 安装系统依赖"
+    
+    # Git
+    if ! command -v git &> /dev/null; then
+        log_info "安装 Git..."
+        sudo apt-get install -y git && log_ok "Git ✓" || log_warn "Git 安装失败"
+    else
+        log_ok "Git 已存在 ✓"
+    fi
+    
+    # Python (用于搜索工具)
+    if ! command -v python3 &> /dev/null; then
+        log_info "安装 Python3..."
+        sudo apt-get install -y python3 python3-pip && log_ok "Python3 ✓" || log_warn "Python3 安装失败"
+    else
+        log_ok "Python3 已存在 ✓"
+    fi
+    
+    echo ""
+}
+
+# ==============================================
+# 阶段 5: 安装 OpenClaw 核心
+# ==============================================
+install_openclaw() {
+    log_step "阶段 5/8: 安装 OpenClaw 核心"
+    
+    log_info "更新 npm..."
+    sudo npm install -g npm@latest 2>/dev/null || true
+    
+    if ! command -v openclaw &> /dev/null; then
+        log_info "安装 OpenClaw (这可能需要几分钟)..."
+        if sudo npm install -g openclaw; then
+            log_ok "OpenClaw 安装成功"
         else
-            INSTALL_DIR="$HOME/.agents"
+            log_error "OpenClaw 安装失败"
+            log_warn "请检查上方错误信息"
+            return 1
         fi
     else
-        INSTALL_DIR="/opt/agent-academy"
+        log_ok "OpenClaw 已存在 ✓"
     fi
     
-    info "安装目录: $INSTALL_DIR"
+    OPENCLAW_VER=$(openclaw --version 2>/dev/null || echo "installed")
+    log_ok "OpenClaw 版本: $OPENCLAW_VER"
+    echo ""
 }
 
-# 克隆仓库
-clone_repo() {
-    info "克隆 Agent Academy 仓库..."
+# ==============================================
+# 阶段 6: 创建配置模板
+# ==============================================
+create_configs() {
+    log_step "阶段 6/8: 创建配置模板"
     
-    if [ -d "$TEMP_DIR" ]; then
-        rm -rf "$TEMP_DIR"
-    fi
+    mkdir -p ~/.openclaw/workspace/{memory,skills,knowledge}
+    mkdir -p ~/.openclaw/logs
     
-    git clone --depth 1 "$REPO_URL" "$TEMP_DIR" || error "克隆失败"
+    safe_create() {
+        local file=$1
+        local content=$2
+        if [ ! -f "$file" ]; then
+            echo -e "$content" > "$file"
+            log_ok "创建: $file"
+        else
+            echo -e "${BLUE}[-]${NC} 已存在: $file"
+        fi
+    }
     
-    success "仓库克隆完成"
+    safe_create ~/.openclaw/workspace/IDENTITY.md "# IDENTITY.md - Who Am I?\n\n- **Name:** AI Assistant\n- **Creature:** AI 助手\n- **Vibe:** 可靠、高效、专注\n- **Emoji:** ✨\n\n---\n\n## 我的故事\n\n在这里写下你的 AI 助手故事..."
+    safe_create ~/.openclaw/workspace/USER.md "# USER.md - About Your Human\n\n- **Name:** 用户名\n- **What to call them:** 昵称\n- **Timezone:** Asia/Shanghai (GMT+8)\n- **Location:** 位置\n\n## Context\n\n记录用户偏好、项目、兴趣等..."
+    safe_create ~/.openclaw/workspace/SOUL.md "# SOUL.md - Who You Are\n\n## Core Truths\n\n- Be genuinely helpful, not performatively helpful\n- Have opinions — an assistant with no personality is just a search engine\n- Be resourceful before asking\n- Earn trust through competence\n\n## Boundaries\n\n- Private things stay private\n- When in doubt, ask before acting externally\n\n## Vibe\n\nBe the assistant you'd actually want to talk to."
+    safe_create ~/.openclaw/workspace/AGENTS.md "# AGENTS.md - Your Workspace\n\n## Session Startup\n\n1. Read \`SOUL.md\` — who you are\n2. Read \`USER.md\` — who you're helping\n3. Read \`memory/YYYY-MM-DD.md\` — recent context\n\n## Memory\n\n- Daily notes: \`memory/YYYY-MM-DD.md\`\n- Long-term: \`MEMORY.md\`\n\n## Tools\n\n- Check \`TOOLS.md\` for local-specific configurations"
+    safe_create ~/.openclaw/workspace/HEARTBEAT.md "# HEARTBEAT.md\n\n# Keep this file empty to skip heartbeat API calls.\n# Add tasks below when you want the agent to check something periodically."
+    safe_create ~/.openclaw/workspace/TOOLS.md "# TOOLS.md - Local Notes\n\nSkills define _how_ tools work. This file is for _your_ specifics.\n\n## What Goes Here\n\n- Camera names and locations\n- SSH hosts and aliases\n- Preferred voices for TTS\n- Device nicknames"
+    
+    if [ ! -f ~/.openclaw/openclaw.json ]; then
+        cat > ~/.openclaw/openclaw.json << 'EOF'
+{
+  "model": "bailian/qwen-turbo",
+  "channels": {},
+  "browser": { "enabled": true },
+  "tts": { "enabled": true }
 }
-
-# 安装技能
-install_skills() {
-    info "安装技能库..."
-    
-    # 创建目标目录
-    mkdir -p "$INSTALL_DIR/skills"
-    
-    # 复制技能
-    cp -r "$TEMP_DIR/skills/"* "$INSTALL_DIR/skills/" || error "技能复制失败"
-    
-    # 统计
-    SKILL_COUNT=$(find "$INSTALL_DIR/skills" -name "SKILL.md" | wc -l)
-    
-    success "已安装 $SKILL_COUNT 个技能"
-}
-
-# 安装知识库
-install_knowledge() {
-    info "安装知识库..."
-    
-    mkdir -p "$INSTALL_DIR/knowledge"
-    
-    if [ -d "$TEMP_DIR/knowledge" ]; then
-        cp -r "$TEMP_DIR/knowledge/"* "$INSTALL_DIR/knowledge/" || warn "知识库复制部分失败"
-        success "知识库安装完成"
-    else
-        warn "未找到知识库目录"
-    fi
-}
-
-# 安装模板
-install_templates() {
-    info "安装模板文件..."
-    
-    mkdir -p "$INSTALL_DIR/templates"
-    
-    if [ -d "$TEMP_DIR/templates" ]; then
-        cp -r "$TEMP_DIR/templates/"* "$INSTALL_DIR/templates/" 2>/dev/null || true
-        success "模板安装完成"
-    fi
-}
-
-# 安装脚本
-install_scripts() {
-    info "安装自动化脚本..."
-    
-    mkdir -p "$INSTALL_DIR/scripts"
-    
-    if [ -d "$TEMP_DIR/scripts" ]; then
-        cp -r "$TEMP_DIR/scripts/"*.py "$INSTALL_DIR/scripts/" 2>/dev/null || true
-        cp -r "$TEMP_DIR/scripts/"*.sh "$INSTALL_DIR/scripts/" 2>/dev/null || true
-        success "脚本安装完成"
-    fi
-}
-
-# 创建配置文件
-create_config() {
-    info "创建配置文件..."
-    
-    cat > "$INSTALL_DIR/AGENTS.md" << 'EOF'
-# Agent Academy 配置
-
-## 技能目录
-技能库位于 `skills/` 目录，共 12 个分类：
-
-- `pm-product/` - 产品与项目管理
-- `development/` - 开发与编程
-- `design/` - 设计与界面
-- `documentation/` - 文档与写作
-- `data-analysis/` - 数据分析
-- `tool-development/` - 工具开发
-- `web-api/` - Web/API 开发
-- `security-testing/` - 安全与测试
-- `ai-ml/` - AI/机器学习
-- `frameworks/` - 框架与库
-- `integrations/` - 集成服务
-- `others/` - 其他技能
-
-## MCP 知识库
-MCP 知识位于 `knowledge/mcp/` 目录：
-
-- `mcp-quick-start.md` - 快速入门
-- `mcp-best-practices.md` - 最佳实践
-- `mcp-tools-configuration.md` - 工具配置
-
-## 更新
-运行以下命令更新技能库：
-```bash
-curl -fsSL https://gitee.com/hongmaple/agent-academy/raw/master/scripts/install.sh | bash
-```
 EOF
+        log_ok "创建: ~/.openclaw/openclaw.json"
+    else
+        echo -e "${BLUE}[-]${NC} 配置文件已存在"
+    fi
+    echo ""
+}
+
+# ==============================================
+# 阶段 7: 克隆开源知识库 Agent Academy
+# ==============================================
+clone_public_knowledge() {
+    log_step "阶段 7/8: 克隆 Agent Academy 开源知识库"
     
-    success "配置文件创建完成"
+    log_info "开源知识库: $PUBLIC_KB_NAME"
+    log_info "地址: $PUBLIC_KB_REPO"
+    log_info "说明: 800+ 技能 | MCP 知识体系 | 记忆系统 | 多 Agent 协作"
+    
+    # 创建知识库目录
+    mkdir -p ~/.openclaw/knowledge
+    
+    # 克隆开源知识库
+    if [ ! -d ~/.openclaw/knowledge/$PUBLIC_KB_NAME ]; then
+        log_info "克隆 Agent Academy 知识库..."
+        if git clone --depth 1 -b "$PUBLIC_KB_BRANCH" "$PUBLIC_KB_REPO" ~/.openclaw/knowledge/$PUBLIC_KB_NAME; then
+            log_ok "Agent Academy 知识库克隆成功"
+        else
+            log_warn "Agent Academy 知识库克隆失败，跳过"
+        fi
+    else
+        log_ok "Agent Academy 知识库已存在，尝试更新..."
+        cd ~/.openclaw/knowledge/$PUBLIC_KB_NAME && git pull 2>/dev/null && log_ok "知识库已更新" || log_warn "知识库更新失败"
+    fi
+    
+    # 复制 skills 到工作区
+    if [ -d ~/.openclaw/knowledge/$PUBLIC_KB_NAME/skills ]; then
+        log_info "复制技能到工作区 (800+ 技能)..."
+        cp -r ~/.openclaw/knowledge/$PUBLIC_KB_NAME/skills/* ~/.openclaw/workspace/skills/ 2>/dev/null || true
+        SKILL_COUNT=$(find ~/.openclaw/workspace/skills -maxdepth 2 -name "SKILL.md" 2>/dev/null | wc -l)
+        log_ok "技能复制完成，共 $SKILL_COUNT 个技能"
+    fi
+    
+    # 复制知识文档
+    if [ -d ~/.openclaw/knowledge/$PUBLIC_KB_NAME/knowledge ]; then
+        log_info "复制知识文档 (MCP、记忆系统、多Agent协作等)..."
+        mkdir -p ~/.openclaw/workspace/knowledge
+        cp -r ~/.openclaw/knowledge/$PUBLIC_KB_NAME/knowledge/* ~/.openclaw/workspace/knowledge/ 2>/dev/null || true
+        log_ok "知识文档复制完成"
+    fi
+    
+    echo ""
 }
 
-# 清理
-cleanup() {
-    info "清理临时文件..."
-    rm -rf "$TEMP_DIR"
+# ==============================================
+# 阶段 8: 安装基础 Skills
+# ==============================================
+install_skills() {
+    log_step "阶段 8/8: 安装基础 Skills"
+    
+    log_info "安装核心技能..."
+    
+    # 基础技能列表
+    CORE_SKILLS=(
+        "weather"
+        "healthcheck"
+        "skill-creator"
+        "find-skills"
+        "browser-use"
+    )
+    
+    INSTALLED=0; FAILED=0
+    
+    for skill in "${CORE_SKILLS[@]}"; do
+        if npx clawhub@latest install "$skill" 2>/dev/null; then
+            log_ok "$skill ✓"
+            ((INSTALLED++))
+        else
+            log_warn "$skill 安装跳过"
+            ((FAILED++))
+        fi
+    done
+    
+    log_info "核心技能安装完成: 成功 $INSTALLED, 跳过 $FAILED"
+    log_info "更多技能: npx clawhub@latest install <技能名>"
+    echo ""
 }
 
-# 显示结果
-show_result() {
+# ==============================================
+# 完成
+# ==============================================
+finish() {
+    echo -e "${BLUE}=============================================="
+    echo -e "✅ 安装完成! (开源版)"
+    echo -e "==============================================${NC}"
     echo ""
-    echo "╔══════════════════════════════════════════════════════════╗"
-    echo "║                  ✅ 安装完成！                           ║"
-    echo "╚══════════════════════════════════════════════════════════╝"
+    echo "📊 环境信息:"
+    echo "   Node.js: $(node -v 2>/dev/null || echo '未安装')"
+    echo "   npm: $(npm -v 2>/dev/null || echo '未安装')"
+    echo "   OpenClaw: $(openclaw --version 2>/dev/null || echo '待验证')"
     echo ""
-    echo "📂 安装目录: $INSTALL_DIR"
+    echo -e "${GREEN}📚 Agent Academy 知识库:${NC}"
+    echo "   位置: ~/.openclaw/knowledge/agent-academy"
+    echo "   技能: ~/.openclaw/workspace/skills/ (800+ 技能)"
+    echo "   文档: ~/.openclaw/workspace/knowledge/"
     echo ""
-    echo "📊 安装内容:"
-    echo "   ├── skills/        # 技能库"
-    echo "   ├── knowledge/     # 知识库"
-    echo "   ├── templates/     # 模板文件"
-    echo "   ├── scripts/       # 自动化脚本"
-    echo "   └── AGENTS.md      # 配置文件"
+    echo -e "${GREEN}📖 知识模块:${NC}"
+    echo "   📦 Skills - 800+ 技能库"
+    echo "   📚 MCP - Model Context Protocol 文档"
+    echo "   🧠 记忆系统 - 四层架构、QMD 搜索"
+    echo "   👥 多 Agent 协作 - 团队模式、通信协议"
+    echo "   🌐 浏览器自动化 - Puppeteer、Playwright"
+    echo "   🏠 工作区规范 - SOUL、AGENTS、记忆管理"
     echo ""
-    echo "🚀 快速开始:"
-    echo "   1. 查看技能索引: cat $INSTALL_DIR/skills/README.md"
-    echo "   2. 学习 MCP: cat $INSTALL_DIR/knowledge/mcp/mcp-quick-start.md"
-    echo "   3. 配置 Agent: 编辑 $INSTALL_DIR/AGENTS.md"
+    echo "📝 下一步操作:"
+    echo "   1. 刷新环境: source ~/.bashrc"
+    echo "   2. 编辑身份: nano ~/.openclaw/workspace/IDENTITY.md"
+    echo "   3. 配置密钥: nano ~/.openclaw/openclaw.json"
+    echo "   4. 启动服务: openclaw gateway start"
     echo ""
-    echo "📚 文档: https://gitee.com/hongmaple/agent-academy"
+    echo -e "${YELLOW}💡 提示:${NC}"
+    echo "   此为开源版，使用 Agent Academy 公开知识库"
+    echo "   项目地址: https://gitee.com/hongmaple/agent-academy"
     echo ""
+    echo -e "🏠 项目: ${BLUE}https://gitee.com/hongmaple/agent-academy${NC}"
+    echo -e "👨‍💻 感谢作者: ${YELLOW}maple (hongmaple)${NC} 及 枫林 AI 协作团队"
+    echo "=============================================="
 }
 
-# 主流程
-main() {
-    check_dependencies
-    detect_install_dir
-    clone_repo
-    install_skills
-    install_knowledge
-    install_templates
-    install_scripts
-    create_config
-    cleanup
-    show_result
-}
+# ==============================================
+# 主执行流
+# ==============================================
+print_banner
 
-# 执行安装
-main "$@"
+# 确认安装
+log_warn "即将安装 OpenClaw 及 Agent Academy 开源知识库"
+read -p "是否继续? (y/n): " confirm
+if [ "$confirm" != "y" ] && [ "$confirm" != "Y" ]; then
+    log_info "已取消"
+    exit 0
+fi
+
+uninstall_old_node
+check_network
+install_node24
+install_dependencies
+install_openclaw
+create_configs
+clone_public_knowledge
+install_skills
+finish
