@@ -32,7 +32,11 @@
 ## ✨ 特性
 
 - 📦 **800+ 精选技能** - 覆盖开发、设计、数据分析等 12 个领域
-- 📚 **MCP 知识体系** - 完整的 Model Context Protocol 文档和最佳实践
+- 📚 **知识体系完整** - MCP、记忆系统、多 Agent 协作、浏览器自动化、工作区规范
+- 🧠 **记忆增强方案** - 四层记忆架构，Token 消耗降低 90%
+- 👥 **多 Agent 协作** - 团队组建模式，任务协调策略
+- 🌐 **浏览器自动化** - Puppeteer/Playwright 完整指南
+- 🏠 **工作区规范** - OpenClaw 身份定义、记忆管理、安全边界
 - 🔄 **CI/CD 集成** - 自动化统计、验证、发布流程
 - 🚀 **快速开始** - 一键安装，开箱即用
 - 🤝 **社区驱动** - 开源协作，持续更新
@@ -108,6 +112,10 @@ git merge upstream/master
 | [MCP 快速入门](knowledge/mcp/mcp-quick-start.md) | 5 分钟上手 MCP 工具 |
 | [MCP 最佳实践](knowledge/mcp/mcp-best-practices.md) | MCP 开发和使用指南 |
 | [MCP 工具配置](knowledge/mcp/mcp-tools-configuration.md) | 20+ 工具配置手册 |
+| [记忆系统](knowledge/memory-systems/README.md) | 四层记忆架构、QMD 搜索 |
+| [多 Agent 协作](knowledge/multi-agent/README.md) | 团队组建、任务协调 |
+| [浏览器自动化](knowledge/browser-automation/README.md) | Puppeteer、Playwright 指南 |
+| [工作区规范](knowledge/workspace-standards/README.md) | OpenClaw 身份与记忆管理 |
 | [贡献指南](CONTRIBUTING.md) | 如何参与项目贡献 |
 
 ## 📂 目录结构
@@ -129,7 +137,10 @@ agent-academy/
 │   └── others/          # 其他技能（29个）
 ├── knowledge/           # 知识库
 │   ├── mcp/            # MCP 知识体系（8个文档）
-│   └── guides/         # 使用指南
+│   ├── memory-systems/ # 记忆系统（四层架构、QMD搜索）
+│   ├── multi-agent/    # 多Agent协作（团队模式、通信协议）
+│   ├── browser-automation/ # 浏览器自动化（Puppeteer、Playwright）
+│   └── workspace-standards/ # 工作区规范（SOUL、AGENTS、记忆管理）
 ├── templates/          # 模板文件
 ├── scripts/            # 自动化脚本
 ├── .github/            # CI/CD 配置
