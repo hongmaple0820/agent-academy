@@ -43,18 +43,7 @@
 
 ## 📦 安装
 
-### 方式一：Agent 自动安装（推荐）
-
-让 AI Agent 自己安装技能库，只需告诉它：
-
-```
-请帮我安装 Agent Academy 技能库：
-1. 克隆仓库：git clone https://gitee.com/hongmaple/agent-academy.git
-2. 复制技能：将 agent-academy/skills/ 目录复制到我的技能目录
-3. 配置使用：更新 AGENTS.md 或相关配置文件
-```
-
-**一键安装脚本**（Agent 可直接执行）：
+### 方式一：一键安装脚本（推荐）
 
 ```bash
 # Linux/macOS
@@ -64,18 +53,44 @@ curl -fsSL https://gitee.com/hongmaple/agent-academy/raw/master/scripts/install.
 Invoke-WebRequest -Uri "https://gitee.com/hongmaple/agent-academy/raw/master/scripts/install.ps1" -OutFile "install.ps1"; ./install.ps1
 ```
 
-### 方式二：手动安装
+**安装内容包括**：
+- ✅ Node.js 24 LTS
+- ✅ OpenClaw 核心
+- ✅ 800+ 技能库
+- ✅ MCP 知识体系
+- ✅ 记忆系统方案
+- ✅ 多 Agent 协作
+- ✅ 浏览器自动化指南
+- ✅ 工作区规范模板
+- ✅ 完整项目文档
+
+### 方式二：Agent 自动安装
+
+让 AI Agent 自己安装技能库，只需告诉它：
+
+```
+请帮我安装 Agent Academy 知识库：
+1. 克隆仓库：git clone https://gitee.com/hongmaple/agent-academy.git ~/.openclaw/knowledge/agent-academy
+2. 复制技能：将 skills/ 目录复制到 ~/.openclaw/workspace/skills/
+3. 复制知识：将 knowledge/ 目录复制到 ~/.openclaw/workspace/knowledge/
+4. 复制模板：将 templates/ 目录复制到 ~/.openclaw/workspace/templates/
+5. 复制文档：将 README.md、CONTRIBUTING.md、LICENSE 等复制到工作区
+6. 配置使用：更新 AGENTS.md 或相关配置文件
+```
+
+### 方式三：手动安装
 
 ```bash
 # 1. 克隆仓库
 git clone https://gitee.com/hongmaple/agent-academy.git
 
-# 2. 复制技能到你的 AI 助手
-cp -r agent-academy/skills/* ~/.agents/skills/
-
-# 3. 或者选择性安装特定分类
-cp -r agent-academy/skills/development ~/.agents/skills/
-cp -r agent-academy/skills/ai-ml ~/.agents/skills/
+# 2. 复制完整内容到工作区
+mkdir -p ~/.openclaw/workspace/{skills,knowledge,templates}
+cp -r agent-academy/skills/* ~/.openclaw/workspace/skills/
+cp -r agent-academy/knowledge/* ~/.openclaw/workspace/knowledge/
+cp -r agent-academy/templates/* ~/.openclaw/workspace/templates/
+cp -r agent-academy/docs ~/.openclaw/workspace/
+cp agent-academy/README.md agent-academy/CONTRIBUTING.md agent-academy/LICENSE ~/.openclaw/workspace/
 ```
 
 ### 方式三：Fork 后定制

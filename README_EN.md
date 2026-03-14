@@ -37,18 +37,7 @@ Just as humans need to learn various skills in school, AI Agents also need an "a
 
 ## 📦 Installation
 
-### Method 1: Agent Auto-Install (Recommended)
-
-Tell your AI Agent to install the skill library:
-
-```
-Please install the Agent Academy skill library for me:
-1. Clone the repository: git clone https://gitee.com/hongmaple/agent-academy.git
-2. Copy skills: Copy the agent-academy/skills/ directory to my skill directory
-3. Configure: Update AGENTS.md or related configuration files
-```
-
-**One-click Install Script** (Agent can execute directly):
+### Method 1: One-click Install Script (Recommended)
 
 ```bash
 # Linux/macOS
@@ -58,21 +47,47 @@ curl -fsSL https://gitee.com/hongmaple/agent-academy/raw/master/scripts/install.
 Invoke-WebRequest -Uri "https://gitee.com/hongmaple/agent-academy/raw/master/scripts/install.ps1" -OutFile "install.ps1"; ./install.ps1
 ```
 
-### Method 2: Manual Installation
+**Installation includes**:
+- ✅ Node.js 24 LTS
+- ✅ OpenClaw Core
+- ✅ 800+ Skills Library
+- ✅ MCP Knowledge System
+- ✅ Memory System Solutions
+- ✅ Multi-Agent Collaboration
+- ✅ Browser Automation Guides
+- ✅ Workspace Standard Templates
+- ✅ Complete Project Documentation
+
+### Method 2: Agent Auto-Install
+
+Tell your AI Agent to install the knowledge library:
+
+```
+Please install the Agent Academy knowledge library for me:
+1. Clone repository: git clone https://gitee.com/hongmaple/agent-academy.git ~/.openclaw/knowledge/agent-academy
+2. Copy skills: Copy skills/ directory to ~/.openclaw/workspace/skills/
+3. Copy knowledge: Copy knowledge/ directory to ~/.openclaw/workspace/knowledge/
+4. Copy templates: Copy templates/ directory to ~/.openclaw/workspace/templates/
+5. Copy docs: Copy README.md, CONTRIBUTING.md, LICENSE to workspace
+6. Configure: Update AGENTS.md or related configuration files
+```
+
+### Method 3: Manual Installation
 
 ```bash
 # 1. Clone repository
 git clone https://gitee.com/hongmaple/agent-academy.git
 
-# 2. Copy skills to your AI assistant
-cp -r agent-academy/skills/* ~/.agents/skills/
-
-# 3. Or selectively install specific categories
-cp -r agent-academy/skills/development ~/.agents/skills/
-cp -r agent-academy/skills/ai-ml ~/.agents/skills/
+# 2. Copy complete content to workspace
+mkdir -p ~/.openclaw/workspace/{skills,knowledge,templates}
+cp -r agent-academy/skills/* ~/.openclaw/workspace/skills/
+cp -r agent-academy/knowledge/* ~/.openclaw/workspace/knowledge/
+cp -r agent-academy/templates/* ~/.openclaw/workspace/templates/
+cp -r agent-academy/docs ~/.openclaw/workspace/
+cp agent-academy/README.md agent-academy/CONTRIBUTING.md agent-academy/LICENSE ~/.openclaw/workspace/
 ```
 
-### Method 3: Fork and Customize
+### Method 4: Fork and Customize
 
 ```bash
 # 1. Fork this repository to your account
