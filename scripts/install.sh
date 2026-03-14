@@ -317,22 +317,31 @@ clone_public_knowledge() {
     # === 4. 复制项目文档 ===
     log_info "复制项目文档..."
     [ -f "$KB_PATH/README.md" ] && cp "$KB_PATH/README.md" ~/.openclaw/workspace/ && log_ok "README.md ✓"
+    [ -f "$KB_PATH/README_EN.md" ] && cp "$KB_PATH/README_EN.md" ~/.openclaw/workspace/ && log_ok "README_EN.md ✓"
     [ -f "$KB_PATH/CONTRIBUTING.md" ] && cp "$KB_PATH/CONTRIBUTING.md" ~/.openclaw/workspace/ && log_ok "CONTRIBUTING.md ✓"
+    [ -f "$KB_PATH/CONTRIBUTING_EN.md" ] && cp "$KB_PATH/CONTRIBUTING_EN.md" ~/.openclaw/workspace/ && log_ok "CONTRIBUTING_EN.md ✓"
+    [ -f "$KB_PATH/LICENSE" ] && cp "$KB_PATH/LICENSE" ~/.openclaw/workspace/ && log_ok "LICENSE ✓"
     
-    # === 5. 复制 docs 目录 ===
+    # === 5. 复制技能统计 ===
+    log_info "复制技能统计..."
+    [ -f "$KB_PATH/skills-stats.md" ] && cp "$KB_PATH/skills-stats.md" ~/.openclaw/workspace/ && log_ok "skills-stats.md ✓"
+    [ -f "$KB_PATH/skills-stats.json" ] && cp "$KB_PATH/skills-stats.json" ~/.openclaw/workspace/ && log_ok "skills-stats.json ✓"
+    
+    # === 6. 复制 docs 目录 ===
     if [ -d "$KB_PATH/docs" ]; then
         log_info "复制文档目录..."
         cp -r "$KB_PATH/docs" ~/.openclaw/workspace/ 2>/dev/null || true
         log_ok "docs 目录复制完成"
     fi
     
-    # === 6. 复制 scripts 目录 ===
+    # === 7. 复制 scripts 目录 ===
     if [ -d "$KB_PATH/scripts" ]; then
         log_info "复制脚本目录..."
         cp -r "$KB_PATH/scripts" ~/.openclaw/workspace/ 2>/dev/null || true
         log_ok "scripts 目录复制完成"
     fi
     
+    log_ok "知识库完整复制！Agent 可以学习和使用所有知识"
     echo ""
 }
 
@@ -384,23 +393,29 @@ finish() {
     echo "   OpenClaw: $(openclaw --version 2>/dev/null || echo '待验证')"
     echo ""
     echo -e "${GREEN}📚 Agent Academy 知识库:${NC}"
-    echo "   位置: ~/.openclaw/knowledge/agent-academy"
+    echo "   源码位置: ~/.openclaw/knowledge/agent-academy"
+    echo "   工作区位置: ~/.openclaw/workspace/"
     echo ""
-    echo -e "${GREEN}📂 已安装内容:${NC}"
-    echo "   ├── skills/          (800+ 技能库)"
-    echo "   ├── knowledge/       (MCP、记忆系统、多Agent协作)"
-    echo "   ├── templates/       (AGENTS.md、MEMORY.md 模板)"
-    echo "   ├── docs/            (项目文档)"
-    echo "   ├── scripts/         (安装脚本)"
-    echo "   ├── README.md        (项目说明)"
-    echo "   └── CONTRIBUTING.md  (贡献指南)"
+    echo -e "${GREEN}📂 已安装内容 (完整覆盖):${NC}"
+    echo "   ├── skills/              (800+ 技能库)"
+    echo "   ├── knowledge/           (MCP、记忆系统、多Agent协作)"
+    echo "   ├── templates/           (AGENTS.md、MEMORY.md 模板)"
+    echo "   ├── docs/                (项目文档、推广文章)"
+    echo "   ├── scripts/             (安装脚本、工具脚本)"
+    echo "   ├── README.md            (项目说明)"
+    echo "   ├── README_EN.md         (项目说明 - 英文)"
+    echo "   ├── CONTRIBUTING.md      (贡献指南)"
+    echo "   ├── CONTRIBUTING_EN.md   (贡献指南 - 英文)"
+    echo "   ├── LICENSE              (开源许可证)"
+    echo "   ├── skills-stats.md      (技能统计)"
+    echo "   └── skills-stats.json    (技能统计数据)"
     echo ""
-    echo -e "${GREEN}📖 知识模块:${NC}"
-    echo "   📦 Skills - 800+ 技能库"
-    echo "   📚 MCP - Model Context Protocol 文档"
-    echo "   🧠 记忆系统 - 四层架构、QMD 搜索"
+    echo -e "${GREEN}📖 知识模块 (Agent 可学习):${NC}"
+    echo "   📦 Skills - 800+ 技能库 (可直接安装使用)"
+    echo "   📚 MCP - Model Context Protocol 完整文档"
+    echo "   🧠 记忆系统 - 四层架构、QMD 搜索方案"
     echo "   👥 多 Agent 协作 - 团队模式、通信协议"
-    echo "   🌐 浏览器自动化 - Puppeteer、Playwright"
+    echo "   🌐 浏览器自动化 - Puppeteer、Playwright 指南"
     echo "   🏠 工作区规范 - SOUL、AGENTS、记忆管理"
     echo ""
     echo "📝 下一步操作:"
@@ -410,7 +425,7 @@ finish() {
     echo "   4. 启动服务: openclaw gateway start"
     echo ""
     echo -e "${YELLOW}💡 提示:${NC}"
-    echo "   此为开源版，使用 Agent Academy 公开知识库"
+    echo "   知识库已完整安装，Agent 可以学习和使用所有内容"
     echo "   项目地址: https://gitee.com/hongmaple/agent-academy"
     echo ""
     echo -e "🏠 项目: ${BLUE}https://gitee.com/hongmaple/agent-academy${NC}"
