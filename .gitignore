@@ -63,3 +63,35 @@ logs/
 # 临时目录
 temp/
 tmp/
+
+# Next.js 项目文件（不属于此知识库）
+package.json
+package-lock.json
+pnpm-lock.yaml
+bun.lock
+tsconfig.json
+next.config.ts
+next-env.d.ts
+tailwind.config.ts
+postcss.config.mjs
+eslint.config.mjs
+components.json
+cloudflared.exe
+ngrok.zip
+
+# Hackathon/其他项目文档
+A2A_GUIDE.md
+A2A_HACKATHON_PLAN.md
+AI_INSTRUCTIONS.md
+DEMO_VIDEO_SCRIPT.md
+HACKATHON_PPT.md
+HACKATHON_REGISTRATION.md
+PRODUCT_NAME_IDEAS.md
+SECONDME_MIGRATION.md
+
+# Claude 配置
+.claude/
+
+# 推送脚本
+push-to-all.bat
+push-fix.bat
