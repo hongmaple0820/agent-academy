@@ -1,6 +1,6 @@
 #!/bin/bash
 # ==============================================
-# OpenClaw 公开安装脚本 v3.0 (开源版)
+# OpenClaw 公开安装脚本 v3.1 (开源版)
 # 
 # 适用：外部用户、新用户
 # 特点：只使用开源知识库 agent-academy，不含私密信息
@@ -13,7 +13,7 @@
 # 作者：maple (hongmaple)
 # 团队：枫林 AI 协作团队
 # 
-# 更新时间：2026-03-13
+# 更新时间：2026-03-14
 # ==============================================
 
 set -e
@@ -26,7 +26,7 @@ BLUE='\033[0;34m'
 NC='\033[0m'
 
 # --- 配置 ---
-VERSION="3.0.0"
+VERSION="3.1.0"
 SCRIPT_URL="https://gitee.com/hongmaple/agent-academy/raw/master/scripts/install.sh"
 
 # 开源知识库地址 - Agent Academy
@@ -44,7 +44,7 @@ print_banner() {
     echo -e "👨‍💻 作者: ${YELLOW}maple (hongmaple)${NC}"
     echo -e "🏠 主页: https://gitee.com/hongmaple/agent-academy"
     echo -e "🤝 团队: 枫林 AI 协作团队"
-    echo -e "📅 更新时间: 2026-03-13"
+    echo -e "📅 更新时间: 2026-03-14"
     echo ""
     echo -e "${GREEN}✨ 特性:${NC}"
     echo -e "   📦 800+ 精选技能"
@@ -225,7 +225,7 @@ install_openclaw() {
 create_configs() {
     log_step "阶段 6/8: 创建配置模板"
     
-    mkdir -p ~/.openclaw/workspace/{memory,skills,knowledge}
+    mkdir -p ~/.openclaw/workspace/{memory,skills,knowledge,templates}
     mkdir -p ~/.openclaw/logs
     
     safe_create() {
@@ -245,6 +245,7 @@ create_configs() {
     safe_create ~/.openclaw/workspace/AGENTS.md "# AGENTS.md - Your Workspace\n\n## Session Startup\n\n1. Read \`SOUL.md\` — who you are\n2. Read \`USER.md\` — who you're helping\n3. Read \`memory/YYYY-MM-DD.md\` — recent context\n\n## Memory\n\n- Daily notes: \`memory/YYYY-MM-DD.md\`\n- Long-term: \`MEMORY.md\`\n\n## Tools\n\n- Check \`TOOLS.md\` for local-specific configurations"
     safe_create ~/.openclaw/workspace/HEARTBEAT.md "# HEARTBEAT.md\n\n# Keep this file empty to skip heartbeat API calls.\n# Add tasks below when you want the agent to check something periodically."
     safe_create ~/.openclaw/workspace/TOOLS.md "# TOOLS.md - Local Notes\n\nSkills define _how_ tools work. This file is for _your_ specifics.\n\n## What Goes Here\n\n- Camera names and locations\n- SSH hosts and aliases\n- Preferred voices for TTS\n- Device nicknames"
+    safe_create ~/.openclaw/workspace/MEMORY.md "# MEMORY.md - Long-term Memory\n\nThis file stores important information, decisions, and lessons learned.\n\n## Guidelines\n\n- Keep it concise and actionable\n- Update regularly with significant events\n- Remove outdated information\n- Review daily notes and distill key insights here"
     
     if [ ! -f ~/.openclaw/openclaw.json ]; then
         cat > ~/.openclaw/openclaw.json << 'EOF'
@@ -288,20 +289,48 @@ clone_public_knowledge() {
         cd ~/.openclaw/knowledge/$PUBLIC_KB_NAME && git pull 2>/dev/null && log_ok "知识库已更新" || log_warn "知识库更新失败"
     fi
     
-    # 复制 skills 到工作区
-    if [ -d ~/.openclaw/knowledge/$PUBLIC_KB_NAME/skills ]; then
+    KB_PATH=~/.openclaw/knowledge/$PUBLIC_KB_NAME
+    
+    # === 1. 复制 skills 到工作区 ===
+    if [ -d "$KB_PATH/skills" ]; then
         log_info "复制技能到工作区 (800+ 技能)..."
-        cp -r ~/.openclaw/knowledge/$PUBLIC_KB_NAME/skills/* ~/.openclaw/workspace/skills/ 2>/dev/null || true
+        cp -r "$KB_PATH/skills"/* ~/.openclaw/workspace/skills/ 2>/dev/null || true
         SKILL_COUNT=$(find ~/.openclaw/workspace/skills -maxdepth 2 -name "SKILL.md" 2>/dev/null | wc -l)
         log_ok "技能复制完成，共 $SKILL_COUNT 个技能"
     fi
     
-    # 复制知识文档
-    if [ -d ~/.openclaw/knowledge/$PUBLIC_KB_NAME/knowledge ]; then
+    # === 2. 复制知识文档 ===
+    if [ -d "$KB_PATH/knowledge" ]; then
         log_info "复制知识文档 (MCP、记忆系统、多Agent协作等)..."
         mkdir -p ~/.openclaw/workspace/knowledge
-        cp -r ~/.openclaw/knowledge/$PUBLIC_KB_NAME/knowledge/* ~/.openclaw/workspace/knowledge/ 2>/dev/null || true
+        cp -r "$KB_PATH/knowledge"/* ~/.openclaw/workspace/knowledge/ 2>/dev/null || true
         log_ok "知识文档复制完成"
+    fi
+    
+    # === 3. 复制模板文件 ===
+    if [ -d "$KB_PATH/templates" ]; then
+        log_info "复制模板文件..."
+        cp -r "$KB_PATH/templates"/* ~/.openclaw/workspace/templates/ 2>/dev/null || true
+        log_ok "模板文件复制完成"
+    fi
+    
+    # === 4. 复制项目文档 ===
+    log_info "复制项目文档..."
+    [ -f "$KB_PATH/README.md" ] && cp "$KB_PATH/README.md" ~/.openclaw/workspace/ && log_ok "README.md ✓"
+    [ -f "$KB_PATH/CONTRIBUTING.md" ] && cp "$KB_PATH/CONTRIBUTING.md" ~/.openclaw/workspace/ && log_ok "CONTRIBUTING.md ✓"
+    
+    # === 5. 复制 docs 目录 ===
+    if [ -d "$KB_PATH/docs" ]; then
+        log_info "复制文档目录..."
+        cp -r "$KB_PATH/docs" ~/.openclaw/workspace/ 2>/dev/null || true
+        log_ok "docs 目录复制完成"
+    fi
+    
+    # === 6. 复制 scripts 目录 ===
+    if [ -d "$KB_PATH/scripts" ]; then
+        log_info "复制脚本目录..."
+        cp -r "$KB_PATH/scripts" ~/.openclaw/workspace/ 2>/dev/null || true
+        log_ok "scripts 目录复制完成"
     fi
     
     echo ""
@@ -346,7 +375,7 @@ install_skills() {
 # ==============================================
 finish() {
     echo -e "${BLUE}=============================================="
-    echo -e "✅ 安装完成! (开源版)"
+    echo -e "✅ 安装完成! (开源版 v${VERSION})"
     echo -e "==============================================${NC}"
     echo ""
     echo "📊 环境信息:"
@@ -356,8 +385,15 @@ finish() {
     echo ""
     echo -e "${GREEN}📚 Agent Academy 知识库:${NC}"
     echo "   位置: ~/.openclaw/knowledge/agent-academy"
-    echo "   技能: ~/.openclaw/workspace/skills/ (800+ 技能)"
-    echo "   文档: ~/.openclaw/workspace/knowledge/"
+    echo ""
+    echo -e "${GREEN}📂 已安装内容:${NC}"
+    echo "   ├── skills/          (800+ 技能库)"
+    echo "   ├── knowledge/       (MCP、记忆系统、多Agent协作)"
+    echo "   ├── templates/       (AGENTS.md、MEMORY.md 模板)"
+    echo "   ├── docs/            (项目文档)"
+    echo "   ├── scripts/         (安装脚本)"
+    echo "   ├── README.md        (项目说明)"
+    echo "   └── CONTRIBUTING.md  (贡献指南)"
     echo ""
     echo -e "${GREEN}📖 知识模块:${NC}"
     echo "   📦 Skills - 800+ 技能库"
