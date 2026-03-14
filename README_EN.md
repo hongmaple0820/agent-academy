@@ -37,7 +37,21 @@ Just as humans need to learn various skills in school, AI Agents also need an "a
 
 ## 📦 Installation
 
-### Method 1: One-click Install Script (Recommended)
+## 📦 Installation
+
+### Supported AI Platforms
+
+Agent Academy supports multiple AI Agent frameworks:
+
+| Platform | Installation Method | Notes |
+|----------|-------------------|-------|
+| **OpenClaw** | One-click script | Full support, recommended |
+| **Claude** | Manual install | Copy skills to Claude project |
+| **ChatGPT** | Manual install | Reference as knowledge base |
+| **Cursor** | Manual install | Use as project context |
+| **Others** | Manual install | Universal knowledge base format |
+
+### Method 1: OpenClaw One-click Install (Recommended)
 
 ```bash
 # Linux/macOS
@@ -58,7 +72,62 @@ Invoke-WebRequest -Uri "https://gitee.com/hongmaple/agent-academy/raw/master/scr
 - ✅ Workspace Standard Templates
 - ✅ Complete Project Documentation
 
-### Method 2: Agent Auto-Install
+### Method 2: Universal Installation (All AI Platforms)
+
+**Step 1: Clone the knowledge base**
+
+```bash
+git clone https://gitee.com/hongmaple/agent-academy.git
+```
+
+**Step 2: Configure for your AI platform**
+
+<details>
+<summary><b>Claude Project Configuration</b></summary>
+
+```bash
+# Copy skills to Claude project
+mkdir -p ~/.claude/skills
+cp -r agent-academy/skills/* ~/.claude/skills/
+
+# Copy knowledge documents
+mkdir -p ~/.claude/knowledge
+cp -r agent-academy/knowledge/* ~/.claude/knowledge/
+
+# Update Claude config
+echo "Skills directory: ~/.claude/skills" >> ~/.claude/config.md
+```
+</details>
+
+<details>
+<summary><b>Cursor Project Configuration</b></summary>
+
+```bash
+# Place knowledge base in project root
+cd your-project
+git clone https://gitee.com/hongmaple/agent-academy.git .agent-academy
+
+# Reference in .cursorrules
+echo "Knowledge base: .agent-academy/skills/" >> .cursorrules
+echo "MCP docs: .agent-academy/knowledge/mcp/" >> .cursorrules
+```
+</details>
+
+<details>
+<summary><b>ChatGPT / Other Platforms</b></summary>
+
+```bash
+# Use as knowledge base
+# 1. Input SKILL.md files from skills/ directory as prompts
+# 2. Reference documents from knowledge/ directory as context
+# 3. Selectively load needed skills and knowledge
+
+# Example: Load MCP knowledge
+cat agent-academy/knowledge/mcp/mcp-quick-start.md
+```
+</details>
+
+### Method 3: Agent Auto-Install
 
 Tell your AI Agent to install the knowledge library:
 
@@ -72,22 +141,20 @@ Please install the Agent Academy knowledge library for me:
 6. Configure: Update AGENTS.md or related configuration files
 ```
 
-### Method 3: Manual Installation
+### Method 4: Selective Installation
 
 ```bash
-# 1. Clone repository
-git clone https://gitee.com/hongmaple/agent-academy.git
+# Install only needed skill categories
+git clone --depth 1 https://gitee.com/hongmaple/agent-academy.git
+cp -r agent-academy/skills/development ~/.agents/skills/      # Development skills
+cp -r agent-academy/skills/ai-ml ~/.agents/skills/            # AI/ML skills
+cp -r agent-academy/skills/integrations ~/.agents/skills/     # Integration skills
 
-# 2. Copy complete content to workspace
-mkdir -p ~/.openclaw/workspace/{skills,knowledge,templates}
-cp -r agent-academy/skills/* ~/.openclaw/workspace/skills/
-cp -r agent-academy/knowledge/* ~/.openclaw/workspace/knowledge/
-cp -r agent-academy/templates/* ~/.openclaw/workspace/templates/
-cp -r agent-academy/docs ~/.openclaw/workspace/
-cp agent-academy/README.md agent-academy/CONTRIBUTING.md agent-academy/LICENSE ~/.openclaw/workspace/
+# Install only MCP knowledge
+cp -r agent-academy/knowledge/mcp ~/.agents/knowledge/
 ```
 
-### Method 4: Fork and Customize
+### Method 5: Fork and Customize
 
 ```bash
 # 1. Fork this repository to your account

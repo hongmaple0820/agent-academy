@@ -43,7 +43,19 @@
 
 ## 📦 安装
 
-### 方式一：一键安装脚本（推荐）
+### 支持的 AI 平台
+
+Agent Academy 支持多种 AI Agent 框架：
+
+| 平台 | 安装方式 | 说明 |
+|------|---------|------|
+| **OpenClaw** | 一键脚本 | 完整支持，推荐 |
+| **Claude** | 手动安装 | 复制技能到 Claude 项目 |
+| **ChatGPT** | 手动安装 | 作为知识库引用 |
+| **Cursor** | 手动安装 | 作为项目上下文 |
+| **其他** | 手动安装 | 通用知识库格式 |
+
+### 方式一：OpenClaw 一键安装（推荐）
 
 ```bash
 # Linux/macOS
@@ -64,7 +76,62 @@ Invoke-WebRequest -Uri "https://gitee.com/hongmaple/agent-academy/raw/master/scr
 - ✅ 工作区规范模板
 - ✅ 完整项目文档
 
-### 方式二：Agent 自动安装
+### 方式二：通用安装（适用所有 AI 平台）
+
+**步骤 1：克隆知识库**
+
+```bash
+git clone https://gitee.com/hongmaple/agent-academy.git
+```
+
+**步骤 2：根据你的 AI 平台配置**
+
+<details>
+<summary><b>Claude 项目配置</b></summary>
+
+```bash
+# 复制技能到 Claude 项目
+mkdir -p ~/.claude/skills
+cp -r agent-academy/skills/* ~/.claude/skills/
+
+# 复制知识文档
+mkdir -p ~/.claude/knowledge
+cp -r agent-academy/knowledge/* ~/.claude/knowledge/
+
+# 更新 Claude 配置
+echo "Skills directory: ~/.claude/skills" >> ~/.claude/config.md
+```
+</details>
+
+<details>
+<summary><b>Cursor 项目配置</b></summary>
+
+```bash
+# 将知识库放在项目根目录
+cd your-project
+git clone https://gitee.com/hongmaple/agent-academy.git .agent-academy
+
+# 在 .cursorrules 中引用
+echo "知识库位置: .agent-academy/skills/" >> .cursorrules
+echo "MCP 文档: .agent-academy/knowledge/mcp/" >> .cursorrules
+```
+</details>
+
+<details>
+<summary><b>ChatGPT / 其他平台</b></summary>
+
+```bash
+# 作为知识库使用
+# 1. 将 skills/ 目录中的 SKILL.md 文件作为 prompt 输入
+# 2. 将 knowledge/ 目录中的文档作为上下文引用
+# 3. 选择性加载需要的技能和知识
+
+# 例如：加载 MCP 知识
+cat agent-academy/knowledge/mcp/mcp-quick-start.md
+```
+</details>
+
+### 方式三：Agent 自动安装
 
 让 AI Agent 自己安装技能库，只需告诉它：
 
@@ -78,19 +145,17 @@ Invoke-WebRequest -Uri "https://gitee.com/hongmaple/agent-academy/raw/master/scr
 6. 配置使用：更新 AGENTS.md 或相关配置文件
 ```
 
-### 方式三：手动安装
+### 方式四：选择性安装
 
 ```bash
-# 1. 克隆仓库
-git clone https://gitee.com/hongmaple/agent-academy.git
+# 只安装需要的技能分类
+git clone --depth 1 https://gitee.com/hongmaple/agent-academy.git
+cp -r agent-academy/skills/development ~/.agents/skills/      # 开发技能
+cp -r agent-academy/skills/ai-ml ~/.agents/skills/            # AI/ML 技能
+cp -r agent-academy/skills/integrations ~/.agents/skills/     # 集成技能
 
-# 2. 复制完整内容到工作区
-mkdir -p ~/.openclaw/workspace/{skills,knowledge,templates}
-cp -r agent-academy/skills/* ~/.openclaw/workspace/skills/
-cp -r agent-academy/knowledge/* ~/.openclaw/workspace/knowledge/
-cp -r agent-academy/templates/* ~/.openclaw/workspace/templates/
-cp -r agent-academy/docs ~/.openclaw/workspace/
-cp agent-academy/README.md agent-academy/CONTRIBUTING.md agent-academy/LICENSE ~/.openclaw/workspace/
+# 只安装 MCP 知识
+cp -r agent-academy/knowledge/mcp ~/.agents/knowledge/
 ```
 
 ### 方式三：Fork 后定制
