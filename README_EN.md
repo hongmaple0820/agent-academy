@@ -1,368 +1,250 @@
-# 🎓 Agent Academy - AI Agent Training Hub
+# 🤝 Agent Academy — AI Agent Training Knowledge Base
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Skills](https://img.shields.io/badge/skills-800+-green.svg)](skills/)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 
-> **Train • Cultivate • Share** - A shared knowledge base for training and cultivating AI Agents
+> **Give your AI assistant a "lifetime learning card"**  
+> 800+ curated skills · 4-layer memory system · Multi-agent collaboration · MCP toolkit · Ready to use
 
-## 📖 Overview
-
-**Agent Academy** is an open-source AI Agent training knowledge base dedicated to providing structured skill systems and knowledge resources for AI assistants (such as OpenClaw, Claude, ChatGPT, etc.).
-
-Just as humans need to learn various skills in school, AI Agents also need an "academy" to acquire knowledge and improve their capabilities. Agent Academy is precisely such a treasure trove of knowledge, containing 800+ curated skills across 12 domains including software development, product design, data analysis, AI/ML, and a complete MCP (Model Context Protocol) knowledge system.
-
-### 🎯 Core Values
-
-| Value | Description |
-|-------|-------------|
-| **Train** | Provide structured skills and knowledge for Agents to quickly learn domain-specific capabilities |
-| **Cultivate** | Continuous knowledge updates and best practices to help Agents grow and evolve |
-| **Share** | Open-source community collaboration, knowledge sharing, everyone contributes and benefits |
-
-### 💡 Use Cases
-
-- **Individual Developers**: Configure professional skills for your AI assistant to improve productivity
-- **Team Collaboration**: Build a shared team knowledge base to maintain consistent AI capabilities
-- **Enterprise Users**: Private deployment with customized training for enterprise-specific AI assistants
-- **Open Source Community**: Contribute skills, share knowledge, build the AI ecosystem together
-
-## ✨ Features
-
-- 📦 **800+ Curated Skills** - Covering 12 domains including development, design, data analysis
-- 📚 **MCP Knowledge System** - Complete Model Context Protocol documentation and best practices
-- 🔄 **CI/CD Integration** - Automated statistics, validation, and publishing workflows
-- 🚀 **Quick Start** - One-click installation, ready to use
-- 🤝 **Community Driven** - Open-source collaboration, continuous updates
-
-## 📦 Installation
-
-## 📦 Installation
-
-### Supported AI Platforms
-
-Agent Academy supports multiple AI Agent frameworks:
-
-| Platform | Installation Method | Notes |
-|----------|-------------------|-------|
-| **OpenClaw** | One-click script | Full support, recommended |
-| **Claude** | Manual install | Copy skills to Claude project |
-| **ChatGPT** | Manual install | Reference as knowledge base |
-| **Cursor** | Manual install | Use as project context |
-| **Others** | Manual install | Universal knowledge base format |
-
-### Method 1: OpenClaw One-click Install (Recommended)
-
-```bash
-# Linux/macOS
-curl -fsSL https://gitee.com/hongmaple/agent-academy/raw/master/scripts/install.sh | bash
-
-# Windows (PowerShell)
-Invoke-WebRequest -Uri "https://gitee.com/hongmaple/agent-academy/raw/master/scripts/install.ps1" -OutFile "install.ps1"; ./install.ps1
-```
-
-**Installation includes**:
-- ✅ Node.js 24 LTS
-- ✅ OpenClaw Core
-- ✅ 800+ Skills Library
-- ✅ MCP Knowledge System
-- ✅ Memory System Solutions
-- ✅ Multi-Agent Collaboration
-- ✅ Browser Automation Guides
-- ✅ Workspace Standard Templates
-- ✅ Complete Project Documentation
-
-### Method 2: Universal Installation (All AI Platforms)
-
-**Step 1: Clone the knowledge base**
-
-```bash
-git clone https://gitee.com/hongmaple/agent-academy.git
-```
-
-**Step 2: Configure for your AI platform**
-
-<details>
-<summary><b>Claude Project Configuration</b></summary>
-
-```bash
-# Copy skills to Claude project
-mkdir -p ~/.claude/skills
-cp -r agent-academy/skills/* ~/.claude/skills/
-
-# Copy knowledge documents
-mkdir -p ~/.claude/knowledge
-cp -r agent-academy/knowledge/* ~/.claude/knowledge/
-
-# Update Claude config
-echo "Skills directory: ~/.claude/skills" >> ~/.claude/config.md
-```
-</details>
-
-<details>
-<summary><b>Cursor Project Configuration</b></summary>
-
-```bash
-# Place knowledge base in project root
-cd your-project
-git clone https://gitee.com/hongmaple/agent-academy.git .agent-academy
-
-# Reference in .cursorrules
-echo "Knowledge base: .agent-academy/skills/" >> .cursorrules
-echo "MCP docs: .agent-academy/knowledge/mcp/" >> .cursorrules
-```
-</details>
-
-<details>
-<summary><b>ChatGPT / Other Platforms</b></summary>
-
-```bash
-# Use as knowledge base
-# 1. Input SKILL.md files from skills/ directory as prompts
-# 2. Reference documents from knowledge/ directory as context
-# 3. Selectively load needed skills and knowledge
-
-# Example: Load MCP knowledge
-cat agent-academy/knowledge/mcp/mcp-quick-start.md
-```
-</details>
-
-### Method 3: Agent Auto-Install
-
-Tell your AI Agent to install the knowledge library:
-
-```
-Please install the Agent Academy knowledge library for me:
-1. Clone repository: git clone https://gitee.com/hongmaple/agent-academy.git ~/.openclaw/knowledge/agent-academy
-2. Copy skills: Copy skills/ directory to ~/.openclaw/workspace/skills/
-3. Copy knowledge: Copy knowledge/ directory to ~/.openclaw/workspace/knowledge/
-4. Copy templates: Copy templates/ directory to ~/.openclaw/workspace/templates/
-5. Copy docs: Copy README.md, CONTRIBUTING.md, LICENSE to workspace
-6. Configure: Update AGENTS.md or related configuration files
-```
-
-### Method 4: Selective Installation
-
-```bash
-# Install only needed skill categories
-git clone --depth 1 https://gitee.com/hongmaple/agent-academy.git
-cp -r agent-academy/skills/development ~/.agents/skills/      # Development skills
-cp -r agent-academy/skills/ai-ml ~/.agents/skills/            # AI/ML skills
-cp -r agent-academy/skills/integrations ~/.agents/skills/     # Integration skills
-
-# Install only MCP knowledge
-cp -r agent-academy/knowledge/mcp ~/.agents/knowledge/
-```
-
-### Method 5: Fork and Customize
-
-```bash
-# 1. Fork this repository to your account
-
-# 2. Clone your forked repository
-git clone https://gitee.com/[your-username]/agent-academy.git
-
-# 3. Add upstream repository (keep synced)
-git remote add upstream https://gitee.com/hongmaple/agent-academy.git
-
-# 4. Customize your skill library
-# Add, modify, delete skills...
-
-# 5. Sync with upstream updates
-git fetch upstream
-git merge upstream/master
-```
-
-## 🚀 Quick Start
-
-1. **Browse Skills**: Check [Skills Index](skills/README.md) for available skills
-2. **Learn MCP**: Read [MCP Knowledge Base](knowledge/mcp/README.md) to master tool integration
-3. **Configure**: Refer to [Usage Guide](docs/usage.md) to configure your AI assistant
-4. **Contribute**: Check [Contributing Guide](CONTRIBUTING.md) to participate in community building
-
-## 📚 Documentation
-
-| Document | Description |
-|----------|-------------|
-| [Skills Index](skills/README.md) | Complete list of 800+ skills and categories |
-| [MCP Quick Start](knowledge/mcp/mcp-quick-start.md) | Get started with MCP tools in 5 minutes |
-| [MCP Best Practices](knowledge/mcp/mcp-best-practices.md) | MCP development and usage guide |
-| [MCP Tools Configuration](knowledge/mcp/mcp-tools-configuration.md) | 20+ tools configuration manual |
-| [Contributing Guide](CONTRIBUTING.md) | How to contribute to the project |
-
-## 📂 Directory Structure
-
-```
-agent-academy/
-├── skills/              # Skill Library (800+ skills)
-│   ├── pm-product/      # Product & Project Management (5)
-│   ├── development/     # Development & Programming (21)
-│   ├── design/          # Design & UI (14)
-│   ├── documentation/   # Documentation & Writing (5)
-│   ├── data-analysis/   # Data Analysis (8)
-│   ├── tool-development/# Tool Development (16)
-│   ├── web-api/         # Web/API Development
-│   ├── security-testing/# Security & Testing (3)
-│   ├── ai-ml/           # AI/Machine Learning (21)
-│   ├── frameworks/      # Frameworks & Libraries (4)
-│   ├── integrations/    # Integrations (28)
-│   └── others/          # Other Skills (29)
-├── knowledge/           # Knowledge Base
-│   ├── mcp/            # MCP Knowledge System (8 documents)
-│   └── guides/         # Usage Guides
-├── templates/          # Template Files
-├── scripts/            # Automation Scripts
-├── .github/            # CI/CD Configuration
-└── docs/               # Documentation Site
-```
-
-## 🤝 Contributing
-
-We welcome all forms of contribution! This is a **community-driven** knowledge base where everyone can participate.
-
-### Contribution Methods
-
-| Method | Description | Difficulty |
-|--------|-------------|------------|
-| 📝 **Submit New Skills** | Share your professional skills | ⭐⭐ |
-| 📚 **Improve Documentation** | Enhance existing docs or translate | ⭐ |
-| 🐛 **Report Bugs** | Help us find and fix issues | ⭐ |
-| 💡 **Propose Ideas** | Share your thoughts and needs | ⭐ |
-| 🔧 **Improve Code** | Optimize existing skills and scripts | ⭐⭐⭐ |
-
-### 📤 Submit PR Process
-
-#### Step 1: Fork Repository
-
-1. Visit [Agent Academy](https://gitee.com/hongmaple/agent-academy)
-2. Click the **Fork** button in the top right
-3. Select your account as the target space
-
-#### Step 2: Clone and Create Branch
-
-```bash
-# Clone your forked repository
-git clone https://gitee.com/[your-username]/agent-academy.git
-cd agent-academy
-
-# Create feature branch
-git checkout -b feature/your-skill-name
-```
-
-#### Step 3: Add or Modify Skills
-
-```bash
-# Create skill directory
-mkdir -p skills/[category]/[skill-name]
-
-# Create skill file
-touch skills/[category]/[skill-name]/SKILL.md
-```
-
-**Skill Template**:
-
-```markdown
-# Skill Name
-
-> Version: 1.0.0
-> Updated: YYYY-MM-DD
-> Category: [Category Name]
-
-## 📋 Overview
-[Brief description]
-
-## 🎯 Core Features
-- Feature 1
-- Feature 2
-
-## 🚀 Usage
-[Usage instructions]
-```
-
-#### Step 4: Commit and Push
-
-```bash
-# Add files
-git add .
-
-# Commit (use standard format)
-git commit -m "feat(skill): add [skill-name] skill"
-
-# Push to your repository
-git push origin feature/your-skill-name
-```
-
-#### Step 5: Create Pull Request
-
-1. Visit your forked repository page
-2. Click **Pull Request** button
-3. Fill in PR title and description
-4. Submit PR and wait for review
-
-### 🤖 Let Agent Help You Submit PR
-
-Tell your AI Agent:
-
-```
-Please help me submit a new skill to Agent Academy:
-1. Skill name: xxx
-2. Skill category: development/ai-ml/integrations etc.
-3. Skill functionality: xxx
-4. Usage method: xxx
-
-Follow the CONTRIBUTING.md process to help me create a PR
-```
-
-The Agent will automatically complete the entire process for you!
-
-See [Contributing Guide](CONTRIBUTING.md) for more details.
-
-## 📊 Statistics
-
-| Metric | Count |
-|--------|-------|
-| Total Skills | 800+ |
-| Categories | 12 |
-| MCP Documents | 8 |
-| CI/CD Workflows | 4 |
-| Lines of Code | 430,000+ |
-
-## 🏆 Related Projects
-
-### 🍁 MapleClaw - Human-AI Collaboration Platform
-
-> Seamless collaboration between AI and humans for intelligent workflows
-
-**Project URL**: [https://gitee.com/hongmaple/mapleclaw](https://gitee.com/hongmaple/mapleclaw)
-
-MapleClaw is an innovative human-AI collaboration solution that applies Agent Academy's skill system to real-world business scenarios, enabling:
-- 🤖 Intelligent task allocation and execution
-- 📊 Automated workflows
-- 🔄 Human-AI collaborative decision making
-- 📈 Continuous learning and optimization
+[中文](README.md) | English
 
 ---
 
-## 👥 Authors
+## ✨ Why Agent Academy?
 
-| Role | Information |
-|------|-------------|
-| **Organization** | MapleClaw Team |
-| **Maintainers** | 小琳, 小猪, 小熊 |
-| **Contact** | [Gitee Issues](https://gitee.com/hongmaple/agent-academy/issues) |
+AI assistants are smart, but they need **professional training** to truly deliver value.
+
+Think of a brilliant fresh graduate — high IQ, but without domain-specific training, they struggle to immediately contribute to professional work.
+
+**Agent Academy solves exactly this** — providing systematic knowledge, skills, and standards so your AI assistant can actually get things done.
+
+---
+
+## 🚀 Quick Start
+
+### Option 1: One-Click Install (Recommended)
+
+```bash
+# Linux / macOS
+curl -fsSL https://gitee.com/hongmaple/agent-academy/raw/master/scripts/install.sh | bash
+
+# Windows (PowerShell)
+Invoke-WebRequest -Uri "https://gitee.com/hongmaple/agent-academy/raw/master/scripts/install.ps1" -OutFile "install.ps1"; .\install.ps1
+```
+
+### Option 2: Manual Install
+
+```bash
+# Clone the repository
+git clone https://github.com/hongmaple0820/agent-academy.git
+
+# Copy skills to your AI agent directory
+cp -r agent-academy/skills/* ~/.agents/skills/
+
+# Copy workspace configuration template (optional but recommended)
+cp agent-academy/templates/AGENTS.md ~/your-workspace/AGENTS.md
+```
+
+### Activate Your Agent
+
+Tell your AI assistant:
+```
+I've installed Agent Academy at ~/.agents/
+Please load the skill library and confirm available professional skills.
+```
+
+---
+
+## 📦 What's Inside?
+
+### 🎯 800+ Curated Skills
+
+Covering 12 professional domains, each skill with full documentation and examples:
+
+| Domain | Count | Example Skills |
+|--------|-------|---------------|
+| Development & Programming | 21+ | Git workflow, code review, CI/CD |
+| AI / Machine Learning | 21+ | Model training, prompt engineering |
+| Integrations | 28+ | GitHub, Slack, Notion, Figma |
+| Design | 14+ | UI standards, API design, prototyping |
+| Data Analysis | 8+ | Visualization, reports, data cleaning |
+| Documentation | 4+ | PDF / Word / PPT / Excel |
+| Product Management | 5+ | PRD writing, requirements analysis |
+| Tool Development | 16+ | Skill creation, script automation |
+| Web / API | 12+ | Interface design, frontend standards |
+| Security Testing | 10+ | Vulnerability scanning, test strategy |
+| Frameworks & Libraries | 15+ | React, Vue, Node.js best practices |
+| Other Specialties | 20+ | More professional scenarios |
+
+### 🧠 4-Layer Memory System
+
+| Layer | Content | Effect |
+|-------|---------|--------|
+| Context Memory | Current conversation | Instant response |
+| Session Memory | Single work session | Coherent conversation |
+| Working Memory | Project specs / tech stack | Understands your project |
+| Long-term Memory | Experience / preferences | Gets smarter over time |
+
+**QMD Local Semantic Search**: 90% reduction in token usage, 93% search accuracy
+
+### 👥 Multi-Agent Collaboration
+
+5 collaboration modes, 3-8x efficiency boost:
+
+| Mode | Best For | Speedup |
+|------|----------|---------|
+| Parallel | Batch processing | 5x |
+| Serial | Dependent workflows | 3x |
+| Master-Slave | Project management | 4x |
+| Expert | Role-based tasks | 6x |
+| Hybrid | Complex projects | 8x |
+
+### 📡 Complete MCP Knowledge Base
+
+| Document | Content |
+|----------|---------|
+| [Quick Start](knowledge/mcp/) | Get started with MCP in 5 minutes |
+| [Tool Configuration](knowledge/mcp/) | Detailed config for 20+ tools |
+| [Best Practices](knowledge/mcp/) | Lessons learned and architecture tips |
+| [Real-World Cases](knowledge/mcp/) | 11 practical usage examples |
+
+### 🌐 Browser Automation
+
+- **Puppeteer** — Node.js browser control
+- **Playwright** — Cross-browser support (Chrome / Firefox / Safari)
+- Automated testing, web scraping, screenshots, form filling
+
+---
+
+## 📁 Repository Structure
+
+```
+agent-academy/
+├── README.md                    # Project introduction (中文)
+├── README_EN.md                 # This file (English)
+├── LICENSE                      # MIT License
+│
+├── skills/                      # 🎯 800+ Skills
+│   ├── README.md                # Skill index & navigation
+│   ├── development/             # Development & programming
+│   ├── ai-ml/                   # AI & machine learning
+│   ├── integrations/            # Integration services
+│   ├── design/                  # Design
+│   ├── data-analysis/           # Data analysis
+│   ├── documentation/           # Documentation
+│   ├── pm-product/              # Product management
+│   ├── tool-development/        # Tool development
+│   ├── web-api/                 # Web / API
+│   ├── security-testing/        # Security & testing
+│   ├── frameworks/              # Frameworks & libraries
+│   ├── others/                  # Other specialties
+│   ├── daily-review/            # ⭐ Daily review (core skill)
+│   ├── programming-workflow/    # ⭐ Programming workflow (core skill)
+│   ├── project-standards/       # ⭐ Project standards guide (core skill)
+│   └── pm-skills/               # ⭐ PM skill pack (65 skills, self-contained)
+│
+├── knowledge/                   # 📚 Knowledge Base
+│   ├── INDEX.md                 # Knowledge base navigation
+│   ├── mcp/                     # MCP knowledge (8 core docs)
+│   ├── guides/                  # Usage guides
+│   └── workflow/                # Workflow documentation
+│
+├── templates/                   # 📋 Templates
+│   ├── AGENTS.md                # Workspace configuration template
+│   ├── SOUL.md                  # AI identity definition template
+│   └── MEMORY.md                # Long-term memory template
+│
+├── scripts/                     # 🔧 Automation Scripts
+│   ├── install.sh               # One-click install (Linux/macOS)
+│   ├── install.ps1              # One-click install (Windows)
+│   └── skill-stats.py           # Skill statistics tool
+│
+└── docs/                        # 📖 Documentation
+    └── articles/                # Blog posts & articles
+```
+
+---
+
+## 📖 Essential Reading
+
+| Document | Description | Priority |
+|----------|-------------|----------|
+| [Knowledge Base Index](knowledge/INDEX.md) | Core navigation for the knowledge base | ⭐⭐⭐⭐⭐ |
+| [MCP Quick Start](knowledge/mcp/) | Get started with MCP protocol | ⭐⭐⭐⭐⭐ |
+| [Contributing Guide](CONTRIBUTING.md) | How to contribute to the community | ⭐⭐⭐⭐ |
+| [中文说明](README.md) | Chinese documentation | ⭐⭐⭐ |
+
+---
+
+## 🤝 Contributing
+
+Agent Academy is a community-driven project — everyone is welcome!
+
+### Ways to Contribute
+
+| Method | Difficulty | Description |
+|--------|------------|-------------|
+| 📝 Submit a skill | ⭐⭐ | Fork → Create skill directory → Submit PR |
+| 📚 Improve docs | ⭐ | Fix errors, add examples, translate |
+| 🐛 Report issues | ⭐ | Describe problems in Issues |
+| 💡 Suggest features | ⭐ | Share ideas and requirements |
+
+### Skill Submission Format
+
+```
+skills/[category]/[skill-name]/
+├── SKILL.md      # Skill description (required)
+├── README.md     # Usage guide (recommended)
+├── scripts/      # Script files (optional)
+└── templates/    # Template files (optional)
+```
+
+See [Contributing Guide](CONTRIBUTING.md) for details.
+
+---
+
+## 📊 Current Status
+
+| Metric | Value |
+|--------|-------|
+| Total Skills | **800+** |
+| Domains Covered | **12** |
+| Knowledge Documents | **70+** |
+| Lines of Code | **430,000+** |
+
+---
+
+## 🌐 Repositories
+
+| Platform | URL |
+|----------|-----|
+| **Gitee** (China) | https://gitee.com/hongmaple/agent-academy |
+| **GitHub** | https://github.com/hongmaple0820/agent-academy |
+| **GitCode** | https://gitcode.com/maple168/agent-academy |
+
+---
+
+## 🔗 Related Projects
+
+**🍁 MapleClaw · Human-AI Collaboration Platform**  
+A real-world multi-AI collaboration system. Agent Academy was born from lessons learned building this.  
+URL: https://gitee.com/hongmaple/mapleclaw
+
+---
 
 ## 📄 License
 
-[MIT License](LICENSE) - Free to use, modify, and distribute
+[MIT License](LICENSE) — Free to use, modify, and distribute.
 
 ---
 
 <div align="center">
 
-**⭐ If this project helps you, please give it a Star ⭐**
+**If this project helps you, please give it a Star ⭐**
+
+It's the best encouragement for open source.
 
 Made with ❤️ by [MapleClaw Team](https://gitee.com/hongmaple)
-
-[🏠 Home](https://gitee.com/hongmaple/agent-academy) · [📖 Docs](docs/) · [🐛 Issues](https://gitee.com/hongmaple/agent-academy/issues) · [🤝 Contribute](CONTRIBUTING.md)
 
 </div>
