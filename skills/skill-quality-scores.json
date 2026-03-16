@@ -1,0 +1,2070 @@
+{
+  "generated_at": "2026-03-14 19:22:52",
+  "total_skills": 158,
+  "scores": [
+    {
+      "skill": "daily-review",
+      "scores": {
+        "documentation": 74,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 90,
+        "user_rating": 75
+      },
+      "total": 63.2,
+      "level": "⭐⭐☆☆☆",
+      "category": "core"
+    },
+    {
+      "skill": "programming-workflow",
+      "scores": {
+        "documentation": 49,
+        "examples": 10,
+        "maintenance": 100,
+        "usage": 100,
+        "user_rating": 75
+      },
+      "total": 59.7,
+      "level": "⭐☆☆☆☆",
+      "category": "core"
+    },
+    {
+      "skill": "smart-search",
+      "scores": {
+        "documentation": 70,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 60,
+        "user_rating": 75
+      },
+      "total": 57.5,
+      "level": "⭐☆☆☆☆",
+      "category": "others"
+    },
+    {
+      "skill": "playwright-skill",
+      "scores": {
+        "documentation": 40,
+        "examples": 30,
+        "maintenance": 100,
+        "usage": 60,
+        "user_rating": 75
+      },
+      "total": 56.0,
+      "level": "⭐☆☆☆☆",
+      "category": "frameworks"
+    },
+    {
+      "skill": "supabase-postgres-best-practices",
+      "scores": {
+        "documentation": 60,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 60,
+        "user_rating": 75
+      },
+      "total": 54.5,
+      "level": "⭐☆☆☆☆",
+      "category": "integrations"
+    },
+    {
+      "skill": "project-standards",
+      "scores": {
+        "documentation": 42,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 90,
+        "user_rating": 75
+      },
+      "total": 53.6,
+      "level": "⭐☆☆☆☆",
+      "category": "core"
+    },
+    {
+      "skill": "writing-skills",
+      "scores": {
+        "documentation": 10,
+        "examples": 40,
+        "maintenance": 100,
+        "usage": 70,
+        "user_rating": 75
+      },
+      "total": 51.0,
+      "level": "⭐☆☆☆☆",
+      "category": "documentation"
+    },
+    {
+      "skill": "git-workflow-management",
+      "scores": {
+        "documentation": 44,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 60,
+        "user_rating": 75
+      },
+      "total": 49.7,
+      "level": "⭐☆☆☆☆",
+      "category": "development"
+    },
+    {
+      "skill": "tdd",
+      "scores": {
+        "documentation": 40,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 60,
+        "user_rating": 75
+      },
+      "total": 48.5,
+      "level": "⭐☆☆☆☆",
+      "category": "development"
+    },
+    {
+      "skill": "ui-ux-pro-max",
+      "scores": {
+        "documentation": 40,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 60,
+        "user_rating": 75
+      },
+      "total": 48.5,
+      "level": "⭐☆☆☆☆",
+      "category": "design"
+    },
+    {
+      "skill": "composition-patterns",
+      "scores": {
+        "documentation": 40,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 60,
+        "user_rating": 75
+      },
+      "total": 48.5,
+      "level": "⭐☆☆☆☆",
+      "category": "design"
+    },
+    {
+      "skill": "changelog-generator",
+      "scores": {
+        "documentation": 40,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 60,
+        "user_rating": 75
+      },
+      "total": 48.5,
+      "level": "⭐☆☆☆☆",
+      "category": "documentation"
+    },
+    {
+      "skill": "csv-analyzer",
+      "scores": {
+        "documentation": 40,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 60,
+        "user_rating": 75
+      },
+      "total": 48.5,
+      "level": "⭐☆☆☆☆",
+      "category": "data-analysis"
+    },
+    {
+      "skill": "deep-research",
+      "scores": {
+        "documentation": 40,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 60,
+        "user_rating": 75
+      },
+      "total": 48.5,
+      "level": "⭐☆☆☆☆",
+      "category": "data-analysis"
+    },
+    {
+      "skill": "sanjay-postgres",
+      "scores": {
+        "documentation": 40,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 60,
+        "user_rating": 75
+      },
+      "total": 48.5,
+      "level": "⭐☆☆☆☆",
+      "category": "data-analysis"
+    },
+    {
+      "skill": "claude-designer-skill",
+      "scores": {
+        "documentation": 40,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 60,
+        "user_rating": 75
+      },
+      "total": 48.5,
+      "level": "⭐☆☆☆☆",
+      "category": "tool-development"
+    },
+    {
+      "skill": "knowledge-base-maintenance",
+      "scores": {
+        "documentation": 40,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 60,
+        "user_rating": 75
+      },
+      "total": 48.5,
+      "level": "⭐☆☆☆☆",
+      "category": "tool-development"
+    },
+    {
+      "skill": "imagen",
+      "scores": {
+        "documentation": 40,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 60,
+        "user_rating": 75
+      },
+      "total": 48.5,
+      "level": "⭐☆☆☆☆",
+      "category": "ai-ml"
+    },
+    {
+      "skill": "react-native-skills",
+      "scores": {
+        "documentation": 40,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 60,
+        "user_rating": 75
+      },
+      "total": 48.5,
+      "level": "⭐☆☆☆☆",
+      "category": "frameworks"
+    },
+    {
+      "skill": "react-best-practices",
+      "scores": {
+        "documentation": 40,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 60,
+        "user_rating": 75
+      },
+      "total": 48.5,
+      "level": "⭐☆☆☆☆",
+      "category": "frameworks"
+    },
+    {
+      "skill": "google-docs",
+      "scores": {
+        "documentation": 40,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 60,
+        "user_rating": 75
+      },
+      "total": 48.5,
+      "level": "⭐☆☆☆☆",
+      "category": "integrations"
+    },
+    {
+      "skill": "google-drive",
+      "scores": {
+        "documentation": 40,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 60,
+        "user_rating": 75
+      },
+      "total": 48.5,
+      "level": "⭐☆☆☆☆",
+      "category": "integrations"
+    },
+    {
+      "skill": "google-sheets",
+      "scores": {
+        "documentation": 40,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 60,
+        "user_rating": 75
+      },
+      "total": 48.5,
+      "level": "⭐☆☆☆☆",
+      "category": "integrations"
+    },
+    {
+      "skill": "google-calendar",
+      "scores": {
+        "documentation": 40,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 60,
+        "user_rating": 75
+      },
+      "total": 48.5,
+      "level": "⭐☆☆☆☆",
+      "category": "integrations"
+    },
+    {
+      "skill": "model-failover",
+      "scores": {
+        "documentation": 44,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 50,
+        "user_rating": 75
+      },
+      "total": 48.2,
+      "level": "⭐☆☆☆☆",
+      "category": "ai-ml"
+    },
+    {
+      "skill": "writing-dockerfiles",
+      "scores": {
+        "documentation": 32,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 70,
+        "user_rating": 75
+      },
+      "total": 47.6,
+      "level": "⭐☆☆☆☆",
+      "category": "development"
+    },
+    {
+      "skill": "writing-github-actions",
+      "scores": {
+        "documentation": 32,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 70,
+        "user_rating": 75
+      },
+      "total": 47.6,
+      "level": "⭐☆☆☆☆",
+      "category": "development"
+    },
+    {
+      "skill": "designing-apis",
+      "scores": {
+        "documentation": 32,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 70,
+        "user_rating": 75
+      },
+      "total": 47.6,
+      "level": "⭐☆☆☆☆",
+      "category": "design"
+    },
+    {
+      "skill": "secret-management",
+      "scores": {
+        "documentation": 32,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 70,
+        "user_rating": 75
+      },
+      "total": 47.6,
+      "level": "⭐☆☆☆☆",
+      "category": "integrations"
+    },
+    {
+      "skill": "systematic-debugging",
+      "scores": {
+        "documentation": 10,
+        "examples": 30,
+        "maintenance": 100,
+        "usage": 60,
+        "user_rating": 75
+      },
+      "total": 47.0,
+      "level": "⭐☆☆☆☆",
+      "category": "development"
+    },
+    {
+      "skill": "testing-strategies",
+      "scores": {
+        "documentation": 30,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 70,
+        "user_rating": 75
+      },
+      "total": 47.0,
+      "level": "⭐☆☆☆☆",
+      "category": "development"
+    },
+    {
+      "skill": "deploying-applications",
+      "scores": {
+        "documentation": 30,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 70,
+        "user_rating": 75
+      },
+      "total": 47.0,
+      "level": "⭐☆☆☆☆",
+      "category": "development"
+    },
+    {
+      "skill": "building-forms",
+      "scores": {
+        "documentation": 30,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 70,
+        "user_rating": 75
+      },
+      "total": 47.0,
+      "level": "⭐☆☆☆☆",
+      "category": "design"
+    },
+    {
+      "skill": "designing-layouts",
+      "scores": {
+        "documentation": 30,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 70,
+        "user_rating": 75
+      },
+      "total": 47.0,
+      "level": "⭐☆☆☆☆",
+      "category": "design"
+    },
+    {
+      "skill": "creating-dashboards",
+      "scores": {
+        "documentation": 30,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 70,
+        "user_rating": 75
+      },
+      "total": 47.0,
+      "level": "⭐☆☆☆☆",
+      "category": "design"
+    },
+    {
+      "skill": "building-tables",
+      "scores": {
+        "documentation": 30,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 70,
+        "user_rating": 75
+      },
+      "total": 47.0,
+      "level": "⭐☆☆☆☆",
+      "category": "design"
+    },
+    {
+      "skill": "visualizing-data",
+      "scores": {
+        "documentation": 30,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 70,
+        "user_rating": 75
+      },
+      "total": 47.0,
+      "level": "⭐☆☆☆☆",
+      "category": "data-analysis"
+    },
+    {
+      "skill": "implementing-search-filter",
+      "scores": {
+        "documentation": 30,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 70,
+        "user_rating": 75
+      },
+      "total": 47.0,
+      "level": "⭐☆☆☆☆",
+      "category": "data-analysis"
+    },
+    {
+      "skill": "hugging-face-evaluation",
+      "scores": {
+        "documentation": 10,
+        "examples": 20,
+        "maintenance": 100,
+        "usage": 70,
+        "user_rating": 75
+      },
+      "total": 46.0,
+      "level": "⭐☆☆☆☆",
+      "category": "ai-ml"
+    },
+    {
+      "skill": "ux-ui-design-system",
+      "scores": {
+        "documentation": 30,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 60,
+        "user_rating": 75
+      },
+      "total": 45.5,
+      "level": "⭐☆☆☆☆",
+      "category": "design"
+    },
+    {
+      "skill": "statistical-analysis",
+      "scores": {
+        "documentation": 30,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 60,
+        "user_rating": 75
+      },
+      "total": 45.5,
+      "level": "⭐☆☆☆☆",
+      "category": "data-analysis"
+    },
+    {
+      "skill": "matplotlib",
+      "scores": {
+        "documentation": 30,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 60,
+        "user_rating": 75
+      },
+      "total": 45.5,
+      "level": "⭐☆☆☆☆",
+      "category": "data-analysis"
+    },
+    {
+      "skill": "skills-updater",
+      "scores": {
+        "documentation": 30,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 60,
+        "user_rating": 75
+      },
+      "total": 45.5,
+      "level": "⭐☆☆☆☆",
+      "category": "tool-development"
+    },
+    {
+      "skill": "biopython",
+      "scores": {
+        "documentation": 30,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 60,
+        "user_rating": 75
+      },
+      "total": 45.5,
+      "level": "⭐☆☆☆☆",
+      "category": "ai-ml"
+    },
+    {
+      "skill": "pytorch-lightning",
+      "scores": {
+        "documentation": 30,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 60,
+        "user_rating": 75
+      },
+      "total": 45.5,
+      "level": "⭐☆☆☆☆",
+      "category": "ai-ml"
+    },
+    {
+      "skill": "networkx",
+      "scores": {
+        "documentation": 30,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 60,
+        "user_rating": 75
+      },
+      "total": 45.5,
+      "level": "⭐☆☆☆☆",
+      "category": "ai-ml"
+    },
+    {
+      "skill": "hugging-face-model-trainer",
+      "scores": {
+        "documentation": 30,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 60,
+        "user_rating": 75
+      },
+      "total": 45.5,
+      "level": "⭐☆☆☆☆",
+      "category": "ai-ml"
+    },
+    {
+      "skill": "statsmodels",
+      "scores": {
+        "documentation": 30,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 60,
+        "user_rating": 75
+      },
+      "total": 45.5,
+      "level": "⭐☆☆☆☆",
+      "category": "ai-ml"
+    },
+    {
+      "skill": "scikit-learn",
+      "scores": {
+        "documentation": 30,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 60,
+        "user_rating": 75
+      },
+      "total": 45.5,
+      "level": "⭐☆☆☆☆",
+      "category": "ai-ml"
+    },
+    {
+      "skill": "cloudflare-agents-sdk",
+      "scores": {
+        "documentation": 30,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 60,
+        "user_rating": 75
+      },
+      "total": 45.5,
+      "level": "⭐☆☆☆☆",
+      "category": "integrations"
+    },
+    {
+      "skill": "remotion-video",
+      "scores": {
+        "documentation": 29,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 60,
+        "user_rating": 75
+      },
+      "total": 45.2,
+      "level": "⭐☆☆☆☆",
+      "category": "others"
+    },
+    {
+      "skill": "project-management",
+      "scores": {
+        "documentation": 30,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 50,
+        "user_rating": 75
+      },
+      "total": 44.0,
+      "level": "⭐☆☆☆☆",
+      "category": "pm-product"
+    },
+    {
+      "skill": "product-team",
+      "scores": {
+        "documentation": 30,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 50,
+        "user_rating": 75
+      },
+      "total": 44.0,
+      "level": "⭐☆☆☆☆",
+      "category": "pm-product"
+    },
+    {
+      "skill": "differential-review",
+      "scores": {
+        "documentation": 30,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 50,
+        "user_rating": 75
+      },
+      "total": 44.0,
+      "level": "⭐☆☆☆☆",
+      "category": "development"
+    },
+    {
+      "skill": "property-based-testing",
+      "scores": {
+        "documentation": 30,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 50,
+        "user_rating": 75
+      },
+      "total": 44.0,
+      "level": "⭐☆☆☆☆",
+      "category": "development"
+    },
+    {
+      "skill": "building-secure-contracts",
+      "scores": {
+        "documentation": 30,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 50,
+        "user_rating": 75
+      },
+      "total": 44.0,
+      "level": "⭐☆☆☆☆",
+      "category": "design"
+    },
+    {
+      "skill": "ppt-style-guide",
+      "scores": {
+        "documentation": 25,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 60,
+        "user_rating": 75
+      },
+      "total": 44.0,
+      "level": "⭐☆☆☆☆",
+      "category": "design"
+    },
+    {
+      "skill": "diagram-generator",
+      "scores": {
+        "documentation": 25,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 60,
+        "user_rating": 75
+      },
+      "total": 44.0,
+      "level": "⭐☆☆☆☆",
+      "category": "documentation"
+    },
+    {
+      "skill": "d3js-visualization",
+      "scores": {
+        "documentation": 25,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 60,
+        "user_rating": 75
+      },
+      "total": 44.0,
+      "level": "⭐☆☆☆☆",
+      "category": "data-analysis"
+    },
+    {
+      "skill": "notebooklm-skill",
+      "scores": {
+        "documentation": 25,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 60,
+        "user_rating": 75
+      },
+      "total": 44.0,
+      "level": "⭐☆☆☆☆",
+      "category": "tool-development"
+    },
+    {
+      "skill": "mcporter",
+      "scores": {
+        "documentation": 25,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 60,
+        "user_rating": 75
+      },
+      "total": 44.0,
+      "level": "⭐☆☆☆☆",
+      "category": "tool-development"
+    },
+    {
+      "skill": "constant-time-analysis",
+      "scores": {
+        "documentation": 30,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 50,
+        "user_rating": 75
+      },
+      "total": 44.0,
+      "level": "⭐☆☆☆☆",
+      "category": "security-testing"
+    },
+    {
+      "skill": "insecure-defaults",
+      "scores": {
+        "documentation": 30,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 50,
+        "user_rating": 75
+      },
+      "total": 44.0,
+      "level": "⭐☆☆☆☆",
+      "category": "security-testing"
+    },
+    {
+      "skill": "semgrep-rule-creator",
+      "scores": {
+        "documentation": 30,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 50,
+        "user_rating": 75
+      },
+      "total": 44.0,
+      "level": "⭐☆☆☆☆",
+      "category": "security-testing"
+    },
+    {
+      "skill": "cloudflare-durable-objects",
+      "scores": {
+        "documentation": 25,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 60,
+        "user_rating": 75
+      },
+      "total": 44.0,
+      "level": "⭐☆☆☆☆",
+      "category": "integrations"
+    },
+    {
+      "skill": "firebase-apk-scanner",
+      "scores": {
+        "documentation": 30,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 50,
+        "user_rating": 75
+      },
+      "total": 44.0,
+      "level": "⭐☆☆☆☆",
+      "category": "integrations"
+    },
+    {
+      "skill": "youtube-transcript",
+      "scores": {
+        "documentation": 25,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 60,
+        "user_rating": 75
+      },
+      "total": 44.0,
+      "level": "⭐☆☆☆☆",
+      "category": "integrations"
+    },
+    {
+      "skill": "marketing-skill",
+      "scores": {
+        "documentation": 30,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 50,
+        "user_rating": 75
+      },
+      "total": 44.0,
+      "level": "⭐☆☆☆☆",
+      "category": "others"
+    },
+    {
+      "skill": "engineering-team",
+      "scores": {
+        "documentation": 30,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 50,
+        "user_rating": 75
+      },
+      "total": 44.0,
+      "level": "⭐☆☆☆☆",
+      "category": "others"
+    },
+    {
+      "skill": "c-level-advisor",
+      "scores": {
+        "documentation": 30,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 50,
+        "user_rating": 75
+      },
+      "total": 44.0,
+      "level": "⭐☆☆☆☆",
+      "category": "others"
+    },
+    {
+      "skill": "planning-with-files",
+      "scores": {
+        "documentation": 24,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 60,
+        "user_rating": 75
+      },
+      "total": 43.7,
+      "level": "⭐☆☆☆☆",
+      "category": "pm-product"
+    },
+    {
+      "skill": "github-pr-creation",
+      "scores": {
+        "documentation": 20,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 60,
+        "user_rating": 75
+      },
+      "total": 42.5,
+      "level": "⭐☆☆☆☆",
+      "category": "development"
+    },
+    {
+      "skill": "creating-skills",
+      "scores": {
+        "documentation": 20,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 60,
+        "user_rating": 75
+      },
+      "total": 42.5,
+      "level": "⭐☆☆☆☆",
+      "category": "tool-development"
+    },
+    {
+      "skill": "skill-creator",
+      "scores": {
+        "documentation": 20,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 60,
+        "user_rating": 75
+      },
+      "total": 42.5,
+      "level": "⭐☆☆☆☆",
+      "category": "tool-development"
+    },
+    {
+      "skill": "tool-design",
+      "scores": {
+        "documentation": 20,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 60,
+        "user_rating": 75
+      },
+      "total": 42.5,
+      "level": "⭐☆☆☆☆",
+      "category": "tool-development"
+    },
+    {
+      "skill": "hugging-face-cli",
+      "scores": {
+        "documentation": 20,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 60,
+        "user_rating": 75
+      },
+      "total": 42.5,
+      "level": "⭐☆☆☆☆",
+      "category": "ai-ml"
+    },
+    {
+      "skill": "hugging-face-trackio",
+      "scores": {
+        "documentation": 20,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 60,
+        "user_rating": 75
+      },
+      "total": 42.5,
+      "level": "⭐☆☆☆☆",
+      "category": "ai-ml"
+    },
+    {
+      "skill": "himalaya",
+      "scores": {
+        "documentation": 20,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 60,
+        "user_rating": 75
+      },
+      "total": 42.5,
+      "level": "⭐☆☆☆☆",
+      "category": "integrations"
+    },
+    {
+      "skill": "1password",
+      "scores": {
+        "documentation": 20,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 60,
+        "user_rating": 75
+      },
+      "total": 42.5,
+      "level": "⭐☆☆☆☆",
+      "category": "others"
+    },
+    {
+      "skill": "git-commit",
+      "scores": {
+        "documentation": 15,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 60,
+        "user_rating": 75
+      },
+      "total": 41.0,
+      "level": "⭐☆☆☆☆",
+      "category": "development"
+    },
+    {
+      "skill": "github-pr-review",
+      "scores": {
+        "documentation": 15,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 60,
+        "user_rating": 75
+      },
+      "total": 41.0,
+      "level": "⭐☆☆☆☆",
+      "category": "development"
+    },
+    {
+      "skill": "context-fundamentals",
+      "scores": {
+        "documentation": 15,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 60,
+        "user_rating": 75
+      },
+      "total": 41.0,
+      "level": "⭐☆☆☆☆",
+      "category": "tool-development"
+    },
+    {
+      "skill": "memory-systems",
+      "scores": {
+        "documentation": 15,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 60,
+        "user_rating": 75
+      },
+      "total": 41.0,
+      "level": "⭐☆☆☆☆",
+      "category": "tool-development"
+    },
+    {
+      "skill": "manus",
+      "scores": {
+        "documentation": 15,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 60,
+        "user_rating": 75
+      },
+      "total": 41.0,
+      "level": "⭐☆☆☆☆",
+      "category": "tool-development"
+    },
+    {
+      "skill": "hugging-face-datasets",
+      "scores": {
+        "documentation": 10,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 70,
+        "user_rating": 75
+      },
+      "total": 41.0,
+      "level": "⭐☆☆☆☆",
+      "category": "ai-ml"
+    },
+    {
+      "skill": "multi-agent-patterns",
+      "scores": {
+        "documentation": 15,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 60,
+        "user_rating": 75
+      },
+      "total": 41.0,
+      "level": "⭐☆☆☆☆",
+      "category": "ai-ml"
+    },
+    {
+      "skill": "web-asset-generator",
+      "scores": {
+        "documentation": 15,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 60,
+        "user_rating": 75
+      },
+      "total": 41.0,
+      "level": "⭐☆☆☆☆",
+      "category": "others"
+    },
+    {
+      "skill": "model-usage",
+      "scores": {
+        "documentation": 15,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 60,
+        "user_rating": 75
+      },
+      "total": 41.0,
+      "level": "⭐☆☆☆☆",
+      "category": "others"
+    },
+    {
+      "skill": "claude-mem",
+      "scores": {
+        "documentation": 14,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 60,
+        "user_rating": 75
+      },
+      "total": 40.7,
+      "level": "⭐☆☆☆☆",
+      "category": "ai-ml"
+    },
+    {
+      "skill": "skill-seekers",
+      "scores": {
+        "documentation": 12,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 60,
+        "user_rating": 75
+      },
+      "total": 40.1,
+      "level": "⭐☆☆☆☆",
+      "category": "tool-development"
+    },
+    {
+      "skill": "executing-plans",
+      "scores": {
+        "documentation": 10,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 60,
+        "user_rating": 75
+      },
+      "total": 39.5,
+      "level": "⭐☆☆☆☆",
+      "category": "pm-product"
+    },
+    {
+      "skill": "brainstorming",
+      "scores": {
+        "documentation": 10,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 60,
+        "user_rating": 75
+      },
+      "total": 39.5,
+      "level": "⭐☆☆☆☆",
+      "category": "pm-product"
+    },
+    {
+      "skill": "requesting-code-review",
+      "scores": {
+        "documentation": 10,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 60,
+        "user_rating": 75
+      },
+      "total": 39.5,
+      "level": "⭐☆☆☆☆",
+      "category": "development"
+    },
+    {
+      "skill": "coding-agent",
+      "scores": {
+        "documentation": 10,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 60,
+        "user_rating": 75
+      },
+      "total": 39.5,
+      "level": "⭐☆☆☆☆",
+      "category": "development"
+    },
+    {
+      "skill": "gh-issues",
+      "scores": {
+        "documentation": 10,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 60,
+        "user_rating": 75
+      },
+      "total": 39.5,
+      "level": "⭐☆☆☆☆",
+      "category": "development"
+    },
+    {
+      "skill": "verification-before-completion",
+      "scores": {
+        "documentation": 10,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 60,
+        "user_rating": 75
+      },
+      "total": 39.5,
+      "level": "⭐☆☆☆☆",
+      "category": "development"
+    },
+    {
+      "skill": "test-driven-development",
+      "scores": {
+        "documentation": 10,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 60,
+        "user_rating": 75
+      },
+      "total": 39.5,
+      "level": "⭐☆☆☆☆",
+      "category": "development"
+    },
+    {
+      "skill": "receiving-code-review",
+      "scores": {
+        "documentation": 10,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 60,
+        "user_rating": 75
+      },
+      "total": 39.5,
+      "level": "⭐☆☆☆☆",
+      "category": "development"
+    },
+    {
+      "skill": "finishing-a-development-branch",
+      "scores": {
+        "documentation": 10,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 60,
+        "user_rating": 75
+      },
+      "total": 39.5,
+      "level": "⭐☆☆☆☆",
+      "category": "development"
+    },
+    {
+      "skill": "root-cause-tracing",
+      "scores": {
+        "documentation": 10,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 60,
+        "user_rating": 75
+      },
+      "total": 39.5,
+      "level": "⭐☆☆☆☆",
+      "category": "development"
+    },
+    {
+      "skill": "github-pr-merge",
+      "scores": {
+        "documentation": 10,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 60,
+        "user_rating": 75
+      },
+      "total": 39.5,
+      "level": "⭐☆☆☆☆",
+      "category": "development"
+    },
+    {
+      "skill": "canvas",
+      "scores": {
+        "documentation": 10,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 60,
+        "user_rating": 75
+      },
+      "total": 39.5,
+      "level": "⭐☆☆☆☆",
+      "category": "design"
+    },
+    {
+      "skill": "frontend-design",
+      "scores": {
+        "documentation": 10,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 60,
+        "user_rating": 75
+      },
+      "total": 39.5,
+      "level": "⭐☆☆☆☆",
+      "category": "design"
+    },
+    {
+      "skill": "markdown-to-epub",
+      "scores": {
+        "documentation": 10,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 60,
+        "user_rating": 75
+      },
+      "total": 39.5,
+      "level": "⭐☆☆☆☆",
+      "category": "documentation"
+    },
+    {
+      "skill": "writing-plans",
+      "scores": {
+        "documentation": 10,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 60,
+        "user_rating": 75
+      },
+      "total": 39.5,
+      "level": "⭐☆☆☆☆",
+      "category": "documentation"
+    },
+    {
+      "skill": "session-logs",
+      "scores": {
+        "documentation": 10,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 60,
+        "user_rating": 75
+      },
+      "total": 39.5,
+      "level": "⭐☆☆☆☆",
+      "category": "tool-development"
+    },
+    {
+      "skill": "mcp-builder",
+      "scores": {
+        "documentation": 10,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 60,
+        "user_rating": 75
+      },
+      "total": 39.5,
+      "level": "⭐☆☆☆☆",
+      "category": "tool-development"
+    },
+    {
+      "skill": "oracle",
+      "scores": {
+        "documentation": 10,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 60,
+        "user_rating": 75
+      },
+      "total": 39.5,
+      "level": "⭐☆☆☆☆",
+      "category": "tool-development"
+    },
+    {
+      "skill": "subagent-driven-development",
+      "scores": {
+        "documentation": 10,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 60,
+        "user_rating": 75
+      },
+      "total": 39.5,
+      "level": "⭐☆☆☆☆",
+      "category": "ai-ml"
+    },
+    {
+      "skill": "openai-image-gen",
+      "scores": {
+        "documentation": 10,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 60,
+        "user_rating": 75
+      },
+      "total": 39.5,
+      "level": "⭐☆☆☆☆",
+      "category": "ai-ml"
+    },
+    {
+      "skill": "dispatching-parallel-agents",
+      "scores": {
+        "documentation": 10,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 60,
+        "user_rating": 75
+      },
+      "total": 39.5,
+      "level": "⭐☆☆☆☆",
+      "category": "ai-ml"
+    },
+    {
+      "skill": "notion",
+      "scores": {
+        "documentation": 10,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 60,
+        "user_rating": 75
+      },
+      "total": 39.5,
+      "level": "⭐☆☆☆☆",
+      "category": "integrations"
+    },
+    {
+      "skill": "apple-notes",
+      "scores": {
+        "documentation": 10,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 60,
+        "user_rating": 75
+      },
+      "total": 39.5,
+      "level": "⭐☆☆☆☆",
+      "category": "integrations"
+    },
+    {
+      "skill": "apple-reminders",
+      "scores": {
+        "documentation": 10,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 60,
+        "user_rating": 75
+      },
+      "total": 39.5,
+      "level": "⭐☆☆☆☆",
+      "category": "integrations"
+    },
+    {
+      "skill": "obsidian-markdown",
+      "scores": {
+        "documentation": 10,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 60,
+        "user_rating": 75
+      },
+      "total": 39.5,
+      "level": "⭐☆☆☆☆",
+      "category": "integrations"
+    },
+    {
+      "skill": "obsidian",
+      "scores": {
+        "documentation": 10,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 60,
+        "user_rating": 75
+      },
+      "total": 39.5,
+      "level": "⭐☆☆☆☆",
+      "category": "integrations"
+    },
+    {
+      "skill": "slack",
+      "scores": {
+        "documentation": 10,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 60,
+        "user_rating": 75
+      },
+      "total": 39.5,
+      "level": "⭐☆☆☆☆",
+      "category": "integrations"
+    },
+    {
+      "skill": "obsidian-bases",
+      "scores": {
+        "documentation": 10,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 60,
+        "user_rating": 75
+      },
+      "total": 39.5,
+      "level": "⭐☆☆☆☆",
+      "category": "integrations"
+    },
+    {
+      "skill": "imsg",
+      "scores": {
+        "documentation": 10,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 60,
+        "user_rating": 75
+      },
+      "total": 39.5,
+      "level": "⭐☆☆☆☆",
+      "category": "integrations"
+    },
+    {
+      "skill": "discord",
+      "scores": {
+        "documentation": 10,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 60,
+        "user_rating": 75
+      },
+      "total": 39.5,
+      "level": "⭐☆☆☆☆",
+      "category": "integrations"
+    },
+    {
+      "skill": "gog",
+      "scores": {
+        "documentation": 10,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 60,
+        "user_rating": 75
+      },
+      "total": 39.5,
+      "level": "⭐☆☆☆☆",
+      "category": "integrations"
+    },
+    {
+      "skill": "cloudflare-wrangler",
+      "scores": {
+        "documentation": 10,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 60,
+        "user_rating": 75
+      },
+      "total": 39.5,
+      "level": "⭐☆☆☆☆",
+      "category": "integrations"
+    },
+    {
+      "skill": "bear-notes",
+      "scores": {
+        "documentation": 10,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 60,
+        "user_rating": 75
+      },
+      "total": 39.5,
+      "level": "⭐☆☆☆☆",
+      "category": "integrations"
+    },
+    {
+      "skill": "gifgrep",
+      "scores": {
+        "documentation": 10,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 60,
+        "user_rating": 75
+      },
+      "total": 39.5,
+      "level": "⭐☆☆☆☆",
+      "category": "others"
+    },
+    {
+      "skill": "using-superpowers",
+      "scores": {
+        "documentation": 10,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 60,
+        "user_rating": 75
+      },
+      "total": 39.5,
+      "level": "⭐☆☆☆☆",
+      "category": "others"
+    },
+    {
+      "skill": "using-git-worktrees",
+      "scores": {
+        "documentation": 10,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 60,
+        "user_rating": 75
+      },
+      "total": 39.5,
+      "level": "⭐☆☆☆☆",
+      "category": "others"
+    },
+    {
+      "skill": "sherpa-onnx-tts",
+      "scores": {
+        "documentation": 10,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 60,
+        "user_rating": 75
+      },
+      "total": 39.5,
+      "level": "⭐☆☆☆☆",
+      "category": "others"
+    },
+    {
+      "skill": "summarize",
+      "scores": {
+        "documentation": 10,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 60,
+        "user_rating": 75
+      },
+      "total": 39.5,
+      "level": "⭐☆☆☆☆",
+      "category": "others"
+    },
+    {
+      "skill": "sonoscli",
+      "scores": {
+        "documentation": 10,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 60,
+        "user_rating": 75
+      },
+      "total": 39.5,
+      "level": "⭐☆☆☆☆",
+      "category": "others"
+    },
+    {
+      "skill": "healthcheck",
+      "scores": {
+        "documentation": 10,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 60,
+        "user_rating": 75
+      },
+      "total": 39.5,
+      "level": "⭐☆☆☆☆",
+      "category": "others"
+    },
+    {
+      "skill": "sag",
+      "scores": {
+        "documentation": 10,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 60,
+        "user_rating": 75
+      },
+      "total": 39.5,
+      "level": "⭐☆☆☆☆",
+      "category": "others"
+    },
+    {
+      "skill": "peekaboo",
+      "scores": {
+        "documentation": 10,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 60,
+        "user_rating": 75
+      },
+      "total": 39.5,
+      "level": "⭐☆☆☆☆",
+      "category": "others"
+    },
+    {
+      "skill": "message-sending",
+      "scores": {
+        "documentation": 10,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 60,
+        "user_rating": 75
+      },
+      "total": 39.5,
+      "level": "⭐☆☆☆☆",
+      "category": "others"
+    },
+    {
+      "skill": "ordercli",
+      "scores": {
+        "documentation": 10,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 60,
+        "user_rating": 75
+      },
+      "total": 39.5,
+      "level": "⭐☆☆☆☆",
+      "category": "others"
+    },
+    {
+      "skill": "json-canvas",
+      "scores": {
+        "documentation": 10,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 60,
+        "user_rating": 75
+      },
+      "total": 39.5,
+      "level": "⭐☆☆☆☆",
+      "category": "others"
+    },
+    {
+      "skill": "openhue",
+      "scores": {
+        "documentation": 10,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 60,
+        "user_rating": 75
+      },
+      "total": 39.5,
+      "level": "⭐☆☆☆☆",
+      "category": "others"
+    },
+    {
+      "skill": "bluebubbles",
+      "scores": {
+        "documentation": 10,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 60,
+        "user_rating": 75
+      },
+      "total": 39.5,
+      "level": "⭐☆☆☆☆",
+      "category": "others"
+    },
+    {
+      "skill": "openai-whisper-api",
+      "scores": {
+        "documentation": 12,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 50,
+        "user_rating": 75
+      },
+      "total": 38.6,
+      "level": "⭐☆☆☆☆",
+      "category": "ai-ml"
+    },
+    {
+      "skill": "pg-aiguide",
+      "scores": {
+        "documentation": 10,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 50,
+        "user_rating": 75
+      },
+      "total": 38.0,
+      "level": "⭐☆☆☆☆",
+      "category": "design"
+    },
+    {
+      "skill": "web-design-guidelines",
+      "scores": {
+        "documentation": 10,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 50,
+        "user_rating": 75
+      },
+      "total": 38.0,
+      "level": "⭐☆☆☆☆",
+      "category": "design"
+    },
+    {
+      "skill": "gemini",
+      "scores": {
+        "documentation": 10,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 50,
+        "user_rating": 75
+      },
+      "total": 38.0,
+      "level": "⭐☆☆☆☆",
+      "category": "ai-ml"
+    },
+    {
+      "skill": "openai-whisper",
+      "scores": {
+        "documentation": 10,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 50,
+        "user_rating": 75
+      },
+      "total": 38.0,
+      "level": "⭐☆☆☆☆",
+      "category": "ai-ml"
+    },
+    {
+      "skill": "blucli",
+      "scores": {
+        "documentation": 10,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 50,
+        "user_rating": 75
+      },
+      "total": 38.0,
+      "level": "⭐☆☆☆☆",
+      "category": "others"
+    },
+    {
+      "skill": "clawhub",
+      "scores": {
+        "documentation": 10,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 50,
+        "user_rating": 75
+      },
+      "total": 38.0,
+      "level": "⭐☆☆☆☆",
+      "category": "others"
+    },
+    {
+      "skill": "eightctl",
+      "scores": {
+        "documentation": 10,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 50,
+        "user_rating": 75
+      },
+      "total": 38.0,
+      "level": "⭐☆☆☆☆",
+      "category": "others"
+    },
+    {
+      "skill": "blogwatcher",
+      "scores": {
+        "documentation": 10,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 50,
+        "user_rating": 75
+      },
+      "total": 38.0,
+      "level": "⭐☆☆☆☆",
+      "category": "others"
+    },
+    {
+      "skill": "nano-banana-pro",
+      "scores": {
+        "documentation": 10,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 50,
+        "user_rating": 75
+      },
+      "total": 38.0,
+      "level": "⭐☆☆☆☆",
+      "category": "others"
+    },
+    {
+      "skill": "camsnap",
+      "scores": {
+        "documentation": 10,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 50,
+        "user_rating": 75
+      },
+      "total": 38.0,
+      "level": "⭐☆☆☆☆",
+      "category": "others"
+    },
+    {
+      "skill": "goplaces",
+      "scores": {
+        "documentation": 10,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 50,
+        "user_rating": 75
+      },
+      "total": 38.0,
+      "level": "⭐☆☆☆☆",
+      "category": "others"
+    },
+    {
+      "skill": "registry",
+      "scores": {
+        "documentation": 0,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 50,
+        "user_rating": 75
+      },
+      "total": 35.0,
+      "level": "⭐☆☆☆☆",
+      "category": "tool-development"
+    },
+    {
+      "skill": "claude.ai",
+      "scores": {
+        "documentation": 0,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 50,
+        "user_rating": 75
+      },
+      "total": 35.0,
+      "level": "⭐☆☆☆☆",
+      "category": "ai-ml"
+    },
+    {
+      "skill": "react-best-practices-build",
+      "scores": {
+        "documentation": 0,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 50,
+        "user_rating": 75
+      },
+      "total": 35.0,
+      "level": "⭐☆☆☆☆",
+      "category": "frameworks"
+    },
+    {
+      "skill": "aws-cdk",
+      "scores": {
+        "documentation": 0,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 50,
+        "user_rating": 75
+      },
+      "total": 35.0,
+      "level": "⭐☆☆☆☆",
+      "category": "integrations"
+    },
+    {
+      "skill": "aws-cost-ops",
+      "scores": {
+        "documentation": 0,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 50,
+        "user_rating": 75
+      },
+      "total": 35.0,
+      "level": "⭐☆☆☆☆",
+      "category": "integrations"
+    },
+    {
+      "skill": "aws-agentic-ai",
+      "scores": {
+        "documentation": 0,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 50,
+        "user_rating": 75
+      },
+      "total": 35.0,
+      "level": "⭐☆☆☆☆",
+      "category": "integrations"
+    },
+    {
+      "skill": "serverless-eda",
+      "scores": {
+        "documentation": 0,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 50,
+        "user_rating": 75
+      },
+      "total": 35.0,
+      "level": "⭐☆☆☆☆",
+      "category": "integrations"
+    },
+    {
+      "skill": "aws-common",
+      "scores": {
+        "documentation": 0,
+        "examples": 0,
+        "maintenance": 100,
+        "usage": 50,
+        "user_rating": 75
+      },
+      "total": 35.0,
+      "level": "⭐☆☆☆☆",
+      "category": "integrations"
+    },
+    {
+      "skill": "pm-skills",
+      "scores": {
+        "documentation": 0,
+        "examples": 0,
+        "maintenance": 50,
+        "usage": 80,
+        "user_rating": 75
+      },
+      "total": 29.5,
+      "level": "⭐☆☆☆☆",
+      "category": "core"
+    }
+  ],
+  "statistics": {
+    "average": 42.8,
+    "max": 63.2,
+    "min": 29.5,
+    "five_star": 0,
+    "four_star": 0,
+    "three_star": 0,
+    "two_star": 1,
+    "one_star": 157
+  }
+}
