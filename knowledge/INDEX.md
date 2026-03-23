@@ -1,6 +1,6 @@
 # 📚 Agent Academy — 知识库导航中心
 
-> **最后更新：2026-03-16**  
+> **最后更新：2026-03-23**  
 > **文档总数：70+ 篇 | 技能总数：800+ | 代码行数：430,000+**
 
 ---
@@ -62,6 +62,7 @@ knowledge/
 | [错误模式库](guide-error-patterns-v1.md) | 常见错误类型和解决方案汇总 |
 | [技能索引指南](guide-skills-index-v1.md) | 所有可用技能和工具清单 |
 | [复合工程指南](guide-compound-engineering-v1.md) | 复杂工程问题的分解策略 |
+| [**开发工作流规范**](guide-development-workflow-v1.md) | Zero-Bug Delivery 四阶段工作流、契约先行、禁止行为清单 |
 
 ---
 
@@ -172,6 +173,6 @@ git push origin master
 
 ---
 
-*索引版本：v4.0*  
-*最后更新：2026-03-16*  
+*索引版本：v4.1*  
+*最后更新：2026-03-23*  
 *维护者：MapleClaw Team*
