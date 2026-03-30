@@ -1,0 +1,285 @@
+{
+  "version": "1.0.0",
+  "lastUpdated": "2025-03-27T22:35:00+08:00",
+  "stats": {
+    "totalSnippets": 12,
+    "totalModules": 5,
+    "totalTemplates": 3
+  },
+  "snippets": [
+    {
+      "id": "001",
+      "name": "button-component",
+      "title": "Button 组件",
+      "category": "ui",
+      "tags": ["button", "component", "ui", "react"],
+      "language": "typescript",
+      "framework": "react",
+      "description": "可复用的按钮组件，支持多种变体和尺寸",
+      "file": "code-assets/snippets/001-button-component.md",
+      "complexity": "simple",
+      "createdAt": "2025-03-27"
+    },
+    {
+      "id": "002",
+      "name": "use-fetch-hook",
+      "title": "useFetch Hook",
+      "category": "hooks",
+      "tags": ["hook", "fetch", "api", "react", "async"],
+      "language": "typescript",
+      "framework": "react",
+      "description": "用于数据获取的自定义 React Hook，支持错误处理和加载状态",
+      "file": "code-assets/snippets/002-use-fetch-hook.md",
+      "complexity": "medium",
+      "createdAt": "2025-03-27"
+    },
+    {
+      "id": "003",
+      "name": "express-middleware",
+      "title": "Express 中间件模板",
+      "category": "backend",
+      "tags": ["express", "middleware", "nodejs", "api"],
+      "language": "javascript",
+      "framework": "express",
+      "description": "Express.js 中间件基础结构和最佳实践",
+      "file": "code-assets/snippets/003-express-middleware.md",
+      "complexity": "medium",
+      "createdAt": "2025-03-27"
+    },
+    {
+      "id": "004",
+      "name": "docker-compose-template",
+      "title": "Docker Compose 模板",
+      "category": "devops",
+      "tags": ["docker", "compose", "container", "deployment"],
+      "language": "yaml",
+      "framework": "docker",
+      "description": "多服务 Docker Compose 配置模板",
+      "file": "code-assets/snippets/004-docker-compose-template.md",
+      "complexity": "medium",
+      "createdAt": "2025-03-27"
+    },
+    {
+      "id": "005",
+      "name": "jwt-auth",
+      "title": "JWT 认证工具",
+      "category": "auth",
+      "tags": ["jwt", "auth", "security", "token"],
+      "language": "typescript",
+      "framework": "node",
+      "description": "JWT 生成、验证和刷新工具函数",
+      "file": "code-assets/snippets/005-jwt-auth.md",
+      "complexity": "medium",
+      "createdAt": "2025-03-27"
+    },
+    {
+      "id": "006",
+      "name": "sql-query-builder",
+      "title": "SQL 查询构建器",
+      "category": "database",
+      "tags": ["sql", "database", "query", "builder"],
+      "language": "typescript",
+      "framework": "none",
+      "description": "类型安全的 SQL 查询构建器",
+      "file": "code-assets/snippets/006-sql-query-builder.md",
+      "complexity": "complex",
+      "createdAt": "2025-03-27"
+    },
+    {
+      "id": "007",
+      "name": "form-validation",
+      "title": "表单验证工具",
+      "category": "utils",
+      "tags": ["form", "validation", "schema", "utils"],
+      "language": "typescript",
+      "framework": "none",
+      "description": "轻量级表单验证库，支持多种验证规则",
+      "file": "code-assets/snippets/007-form-validation.md",
+      "complexity": "medium",
+      "createdAt": "2025-03-27"
+    },
+    {
+      "id": "008",
+      "name": "tailwind-card",
+      "title": "Tailwind Card 组件",
+      "category": "ui",
+      "tags": ["tailwind", "css", "card", "ui"],
+      "language": "html",
+      "framework": "tailwind",
+      "description": "使用 Tailwind CSS 的响应式卡片组件",
+      "file": "code-assets/snippets/008-tailwind-card.md",
+      "complexity": "simple",
+      "createdAt": "2025-03-27"
+    },
+    {
+      "id": "009",
+      "name": "redis-cache",
+      "title": "Redis 缓存封装",
+      "category": "backend",
+      "tags": ["redis", "cache", "performance", "nodejs"],
+      "language": "typescript",
+      "framework": "node",
+      "description": "Redis 缓存操作封装，支持过期时间和序列化",
+      "file": "code-assets/snippets/009-redis-cache.md",
+      "complexity": "medium",
+      "createdAt": "2025-03-27"
+    },
+    {
+      "id": "010",
+      "name": "unit-test-template",
+      "title": "单元测试模板",
+      "category": "testing",
+      "tags": ["jest", "testing", "unit-test", "mock"],
+      "language": "typescript",
+      "framework": "jest",
+      "description": "Jest 单元测试最佳实践模板",
+      "file": "code-assets/snippets/010-unit-test-template.md",
+      "complexity": "simple",
+      "createdAt": "2025-03-27"
+    },
+    {
+      "id": "011",
+      "name": "websocket-client",
+      "title": "WebSocket 客户端",
+      "category": "network",
+      "tags": ["websocket", "realtime", "client", "browser"],
+      "language": "typescript",
+      "framework": "none",
+      "description": "带重连和心跳的 WebSocket 客户端封装",
+      "file": "code-assets/snippets/011-websocket-client.md",
+      "complexity": "complex",
+      "createdAt": "2025-03-27"
+    },
+    {
+      "id": "012",
+      "name": "csv-parser",
+      "title": "CSV 解析器",
+      "category": "utils",
+      "tags": ["csv", "parser", "data", "file"],
+      "language": "typescript",
+      "framework": "none",
+      "description": "流式 CSV 文件解析器，支持大文件处理",
+      "file": "code-assets/snippets/012-csv-parser.md",
+      "complexity": "medium",
+      "createdAt": "2025-03-27"
+    }
+  ],
+  "modules": [
+    {
+      "id": "mod-001",
+      "name": "auth-module",
+      "title": "认证模块",
+      "category": "auth",
+      "tags": ["auth", "jwt", "login", "security"],
+      "description": "完整的用户认证模块，包含登录、注册、密码重置",
+      "files": [
+        "code-assets/modules/auth/login.ts",
+        "code-assets/modules/auth/register.ts",
+        "code-assets/modules/auth/jwt.ts"
+      ],
+      "complexity": "complex",
+      "dependencies": ["005"]
+    },
+    {
+      "id": "mod-002",
+      "name": "api-client",
+      "title": "API 客户端模块",
+      "category": "network",
+      "tags": ["api", "http", "client", "request"],
+      "description": "统一的 API 请求客户端，支持拦截器和错误处理",
+      "files": [
+        "code-assets/modules/api/client.ts",
+        "code-assets/modules/api/interceptors.ts"
+      ],
+      "complexity": "medium",
+      "dependencies": ["002"]
+    },
+    {
+      "id": "mod-003",
+      "name": "database-utils",
+      "title": "数据库工具模块",
+      "category": "database",
+      "tags": ["database", "sql", "orm", "utils"],
+      "description": "数据库连接池和查询工具集合",
+      "files": [
+        "code-assets/modules/db/connection.ts",
+        "code-assets/modules/db/migrations.ts"
+      ],
+      "complexity": "complex",
+      "dependencies": ["006"]
+    },
+    {
+      "id": "mod-004",
+      "name": "ui-components",
+      "title": "UI 组件库",
+      "category": "ui",
+      "tags": ["ui", "components", "react", "design-system"],
+      "description": "基础 UI 组件集合",
+      "files": [
+        "code-assets/modules/ui/Button.tsx",
+        "code-assets/modules/ui/Card.tsx",
+        "code-assets/modules/ui/Input.tsx"
+      ],
+      "complexity": "medium",
+      "dependencies": ["001", "008"]
+    },
+    {
+      "id": "mod-005",
+      "name": "cache-layer",
+      "title": "缓存层模块",
+      "category": "backend",
+      "tags": ["cache", "redis", "performance", "layer"],
+      "description": "多级缓存实现，支持内存和 Redis",
+      "files": [
+        "code-assets/modules/cache/memory.ts",
+        "code-assets/modules/cache/redis.ts"
+      ],
+      "complexity": "complex",
+      "dependencies": ["009"]
+    }
+  ],
+  "templates": [
+    {
+      "id": "tpl-001",
+      "name": "react-app",
+      "title": "React 应用模板",
+      "category": "frontend",
+      "tags": ["react", "typescript", "vite", "template"],
+      "description": "基于 Vite 的 React TypeScript 项目模板",
+      "files": [
+        "code-assets/templates/react-app/package.json",
+        "code-assets/templates/react-app/vite.config.ts",
+        "code-assets/templates/react-app/src/main.tsx"
+      ],
+      "complexity": "medium"
+    },
+    {
+      "id": "tpl-002",
+      "name": "express-api",
+      "title": "Express API 模板",
+      "category": "backend",
+      "tags": ["express", "api", "rest", "template"],
+      "description": "RESTful API 项目模板，包含路由、中间件和错误处理",
+      "files": [
+        "code-assets/templates/express-api/package.json",
+        "code-assets/templates/express-api/src/app.ts",
+        "code-assets/templates/express-api/src/routes/index.ts"
+      ],
+      "complexity": "medium"
+    },
+    {
+      "id": "tpl-003",
+      "name": "docker-fullstack",
+      "title": "全栈 Docker 模板",
+      "category": "devops",
+      "tags": ["docker", "fullstack", "nginx", "template"],
+      "description": "前后端分离的全栈应用 Docker 部署模板",
+      "files": [
+        "code-assets/templates/docker-fullstack/docker-compose.yml",
+        "code-assets/templates/docker-fullstack/nginx.conf",
+        "code-assets/templates/docker-fullstack/Dockerfile"
+      ],
+      "complexity": "complex"
+    }
+  ]
+}
